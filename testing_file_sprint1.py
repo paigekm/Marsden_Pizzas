@@ -1,9 +1,27 @@
+"""A program to manage customers' pizza orders."""
+
+import math
+
+
 def get_string(m):
+    """Ask for user input as a string.
+
+    :param m: list
+    :return: string
+
+    """
     my_string = input(m)
     return my_string
 
 
 def single_loop_print(L):
+    """Print the list.
+
+    :param L: list
+    :return: None
+
+    Print the list in a nice format and only once.
+    """
     output="{: ^10} {:^10}".format("Price", "Pizzas")
     print(output)
     for i in range(0, len(L)):
@@ -12,6 +30,12 @@ def single_loop_print(L):
 
 
 def quit_or_menu():
+    """Choose to either quit or view menu.
+    :param: None
+    :return: None
+    """
+
+    my_order = []
 
     pizzas = [
         ("18.5", "USA"),
