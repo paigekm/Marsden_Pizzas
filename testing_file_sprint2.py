@@ -4,20 +4,20 @@ import math
 
 
 def stars():
+    """Prints a line of * to separate information and make the output easy to understand."""
     print("*" * 60)
 
 
 def dotted():
+    """Prints a line of . to separate information and make the output easy to understand."""
     print("." * 60)
 
 
 def get_string(m):
     """Ask for user input as a string.
-
-        :param m: list
-        :return: string
-
-        """
+    :param m: list
+    :return: string
+    """
     my_string = str(input(m))
     return my_string
 
@@ -41,11 +41,11 @@ def single_loop_print(p):
 
         Print the list in a nice format and only once.
         """
-    output = "{: ^10} {:^15} {:^15}".format("PRICE", "PIZZAS", "DESCRIPTION")
+    output = "{: ^10} {:^15} {:^15} {:^15}".format("INDEX", "PRICE", "PIZZAS", "DESCRIPTION")
     print(output)
     stars()
     for i in range(0, len(p)):
-        output = "{}:   {: ^10} --- {:<10} --- {:<10}".format(i, p[i][0], p[i][1], p[i][2])
+        output = "{}:  {: ^25} --- {:<10} --- {:<10}".format(i, p[i][0], p[i][1], p[i][2])
         print(output)
 
 
@@ -61,11 +61,13 @@ def add_to_order(mo,p):
         adds new pizza and quantity to the list,
         prints confirmation.
         """
+    dotted()
     print("Start to fill out order")
     dotted()
     pizza_choice_index = get_integer("Enter pizza index number:")
     chosen_pizza = p[pizza_choice_index][1]
     quantity = get_integer("How many {} pizzas would you like?".format(chosen_pizza))
+    dotted()
     temp_list = [chosen_pizza, quantity]
     mo.append(temp_list)
 
@@ -103,8 +105,8 @@ def quit_or_menu():
     ]
 
     confirm_quit = [
-        ("Q", "Continue quit"),
-        ("B", "Go back to menu page")
+        ("Y", "Continue quit"),
+        ("N", "Go back to menu page")
     ]
 
     run = True
@@ -127,10 +129,10 @@ def quit_or_menu():
                 print("{:3} : {}".format(confirm_quit[i][0], confirm_quit[i][1]))
             ask_quit_confirmation = get_string("Are you sure you want to quit?").upper()
             dotted()
-            if ask_quit_confirmation == "Q":
+            if ask_quit_confirmation == "Y":
                 print("Thank you for visiting Marsden Pizzas. Hope to see you again!")
                 run = False
-            elif ask_quit_confirmation == "B":
+            elif ask_quit_confirmation == "N":
                 run = True
             else:
                 print("You have requested an invalid choice.")
