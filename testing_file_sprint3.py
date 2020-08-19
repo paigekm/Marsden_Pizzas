@@ -1,27 +1,28 @@
 """A program to manage customers' pizza orders."""
 
-from validations import get_validated_integer, get_validated_string
+from validations import get_validated_integer, \
+    get_validated_integer_pizzalimits, get_validated_string
 import math
 
 
 def stars():
-    """Prints a line of * to separate information and make the output easy to understand."""
+    """Print a line of * to separate information and make
+    the output easy to understand."""
     print("*" * 60)
 
 
 def dotted():
-    """Prints a line of . to separate information and make the output easy to understand."""
+    """Print a line of . to separate information and make the
+    output easy to understand."""
     print("." * 60)
 
 
 def single_loop_print(p):
     """Print the list.
-
         :param L: list
         :return: None
-
-        Print the list in a nice format and only once.
-        """
+    Print the list in a nice format and only once.
+    """
     output = "{: ^10} {:^15} {:^15} {:^15}".format("INDEX", "PRICE", "PIZZAS", "DESCRIPTION")
     print(output)
     stars()
@@ -43,21 +44,50 @@ def add_to_order(mo,p):
         prints confirmation.
         """
     dotted()
-    print("Start to fill out order")
-    dotted()
     pizza_choice_index = get_validated_integer("Enter pizza index number:", 0, len(p)-1)
     chosen_pizza = p[pizza_choice_index][1]
-    quantity = get_validated_integer("How many {} pizzas would you like?".format(chosen_pizza), 1, 5)
+    ## get the total number of pizzas
+    total = total_pizzas_ordered(mo)
+    print("You currently have {} pizzas in your order.".format(total))
+    quantity = get_validated_integer_pizzalimits("How many {} pizzas would you like?".format(chosen_pizza), 1, 5)
+    if total + quantity > 50:
+        print("You can only order 50 pizzas in total. You can only order {} more pizzas.".format(50-total))
+        return None
     dotted()
-    temp_list = [chosen_pizza, quantity]
+    temp_list = [chosen_pizza, quantity, p[pizza_choice_index][0]]
     mo.append(temp_list)
 
 
 def review_order(mo):
     print("Here is your order so far:")
     for i in range(0, len(mo)):
-        order = ("{: ^10} --- {:<10} ".format(mo[i][0], mo[i][1]))
+        order = "{: ^10} --- {:<10} --- {: ^10} ".format(mo[i][0], mo[i][1], mo[i][2])
         print(order)
+
+
+def total_pizzas_ordered(mo):
+    total_sum = 0
+    for i in range(0, len(mo)):
+        total_sum += mo[i][1]
+    return total_sum
+    #print("You have ordered {} pizzas in total".format(total_sum))
+    #dotted()
+
+
+def total_pizzas_ordered_mess(mo):
+    run = True
+    total_sum = 0
+    for i in range(0, len(mo)):
+        total_sum = total_sum + mo[i][1]
+    if total_sum > 50:
+        print("Your order has come to {} pizzas in total. You are only allowed to order 50 pizzas in total.".format(total_sum))
+        run = False
+    elif total_sum < 0:
+        print("You have to order at least one pizza in total.")
+        run = False
+    else:
+        print("You have ordered {} pizzas in total".format(total_sum))
+        dotted()
 
 
 def quit_or_menu():
@@ -80,9 +110,10 @@ def quit_or_menu():
 
     option_menu = [
         ("V", "View pizza menu"),
-        ("O", "Start order"),
+        ("A", "Add pizza to your order"),
         ("R", "Review order so far"),
-        ("Q", "Quit")
+        ("Q", "Quit"),
+        ("T", "This is a test")
     ]
 
     confirm_quit = [
@@ -90,6 +121,7 @@ def quit_or_menu():
         ("N", "Go back to menu page")
     ]
 
+    start = True
     run = True
     while run == True:
         for i in range(0, len(option_menu)):
@@ -99,11 +131,17 @@ def quit_or_menu():
         if option_choice == "V":
             single_loop_print(pizzas)
             dotted()
-        elif option_choice == "O":
+        elif option_choice == "A":
             single_loop_print(pizzas)
+            if start == True:
+                dotted()
+                print("Start to fill out order")
+                start = False
             add_to_order(my_order, pizzas)
         elif option_choice == "R":
             review_order(my_order)
+            dotted()
+            total_pizzas_ordered(my_order)
             dotted()
         elif option_choice == "Q":
             for i in range(0, len(confirm_quit)):
@@ -119,6 +157,8 @@ def quit_or_menu():
             else:
                 print("You have requested an invalid choice.")
                 dotted()
+        elif option_choice == "T":
+            print("hey")
         else:
             print("You have requested an invalid choice.")
             dotted()

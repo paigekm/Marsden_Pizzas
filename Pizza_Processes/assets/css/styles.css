@@ -172,6 +172,11 @@ column styles
 Single styles
 ------------------------*/
 
+video{
+    display: block;
+    margin:auto;
+}
+
 .img-responsive { 
     display: block;
     margin: auto;
