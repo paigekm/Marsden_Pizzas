@@ -70,24 +70,20 @@ def total_pizzas_ordered(mo):
     for i in range(0, len(mo)):
         total_sum += mo[i][1]
     return total_sum
-    #print("You have ordered {} pizzas in total".format(total_sum))
-    #dotted()
 
 
-def total_pizzas_ordered_mess(mo):
-    run = True
-    total_sum = 0
+def price_of_order(mo):
+    total_price = 0
     for i in range(0, len(mo)):
-        total_sum = total_sum + mo[i][1]
-    if total_sum > 50:
-        print("Your order has come to {} pizzas in total. You are only allowed to order 50 pizzas in total.".format(total_sum))
-        run = False
-    elif total_sum < 0:
-        print("You have to order at least one pizza in total.")
-        run = False
-    else:
-        print("You have ordered {} pizzas in total".format(total_sum))
+        order = "{: ^15} --- {:<10} --- {: ^10} ".format(mo[i][0], mo[i][1], mo[i][2])
+        print(order)
+        sub_total= mo[i][1] * mo[i][2]
+        print("Your order of {} pizzas comes to a total of {}".format(mo[i][0], sub_total))
+        total_price = total_price + sub_total
         dotted()
+    print("Your order is ${} overall".format(total_price))
+    dotted()
+    return None
 
 
 def quit_or_menu():
@@ -97,6 +93,11 @@ def quit_or_menu():
         """
     # this list is a list of the customer's ordered pizzas
     my_order = []
+    my_order_temp = [
+        ["Russia", 5, 25.5],
+        ["Botswana", 3, 18.5],
+        ["Afghanistan", 2, 25.5],
+    ]
 
     price_of_regular = 18.5
     price_of_gourmet = price_of_regular + 7
@@ -146,7 +147,7 @@ def quit_or_menu():
         elif option_choice == "Q":
             for i in range(0, len(confirm_quit)):
                 print("{:3} : {}".format(confirm_quit[i][0], confirm_quit[i][1]))
-            ask_quit_confirmation = get_validated_string("Are you sure you want to quit?").upper()
+            ask_quit_confirmation = get_validated_string("Are you sure you want to quit?", 0, 1).upper()
             dotted()
             if ask_quit_confirmation == "Y":
                 print("Thank you for visiting Marsden Pizzas. Hope to see you again!")
@@ -158,7 +159,7 @@ def quit_or_menu():
                 print("You have requested an invalid choice.")
                 dotted()
         elif option_choice == "T":
-            print("hey")
+            price_of_order(my_order_temp)
         else:
             print("You have requested an invalid choice.")
             dotted()

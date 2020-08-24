@@ -27,9 +27,9 @@
 			</div>
 			<div class="nav-bar">
 				<ul class="nav">
-					<li><a href="#">Sprint 1</a></li>
-					<li><a href="#">Sprint 2</a></li>
-					<li><a href="#">Sprint 3</a></li>
+					<li><a href="#1">Sprint 1</a></li>
+					<li><a href="#2">Sprint 2</a></li>
+					<li><a href="#3">Sprint 3</a></li>
 				</ul>
 			</div>
 			<div class="content">
@@ -42,7 +42,7 @@
                 <img class="img-responsive" src="assets/img/sprints_overview.JPG" alt="">
 					<hr>
     <!-- Heading levels -->
-    <h1>Sprint One</h1>
+    <h1 id="1">Sprint One</h1>
                 <img class="img-responsive" src="assets/img/sprint_1_plan.jpg" alt=""><br>
                 <img class="img-responsive" src="assets/img/sprint1_prices_function_plan.jpg" alt=""><br>
 <h4>Sprint board</h4>
@@ -53,7 +53,7 @@
                 <p>This first sprint was successful ... </p>
 
 <hr>
-<h1>Sprint Two</h1>
+<h1 id="2">Sprint Two</h1>
 <h4>Plan for Sprint 2</h4> 
 <h3>Errors</h3>
                 <h4><b>Index out of range:</b></h4>
@@ -72,6 +72,7 @@
                 <h4><b>Re-asks to "Start" order midway through</b></h4>
                 <img class="img-responsive" src="assets/img/asks_to_start_order_again_halfwaythrough.png" alt="">
                 <h4>Solution to error:</h4>
+                <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
                 <br>
                 
 <h4>Testing</h4>
@@ -92,18 +93,27 @@ I also found out I needed to clarify what an index number is, so I added an extr
                 
                 
 <hr>
-<h1>Sprint Three</h1>
+<h1 id="3">Sprint Three</h1>
 <h4>Plan</h4>
-        <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt="">        
-<h4><b>Validations:</b></h4>
-<h5>Error and Solution 1</h5>
+        <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> 
+                
+<h4><b>Program fixes:</b></h4>
+                <h5>Error and Solution 1</h5>
                 <p>Naming the specific pizza when asking "How many AUSTRALIA pizzas would you like?"</p>
                 <h5>Errors:</h5>
                 <img class="img-responsive" src="assets/img/error_and_fix1/how_many_0_pizzas_would_you_like?%20copy.png" alt="">  
                 <img class="img-responsive" src="assets/img/error_and_fix1/number_of_%7B%7D_error.png" alt=""> 
                 <h5>Solved:</h5>
                 <img class="img-responsive" src="assets/img/error_and_fix1/working%20copy.png" alt=""> 
-<h4><b>Validated functions I included and their purpose:</b></h4>
+                
+                 <h5>Only prints start order at the beginning</h5><br>
+                <p>you don't need to include this twice!!</p>
+                <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
+                
+                
+                
+                
+<h4><b>Validated functions:</b></h4>
 <ol>
     <li>If the user enters a string when an integer is requested</li><br>
     <img class="img-responsive" src="assets/img/validation_proofs/enter_string_instead_of_integer.png" alt=""><br>
@@ -115,6 +125,22 @@ I also found out I needed to clarify what an index number is, so I added an extr
     <img class="img-responsive" src="assets/img/validation_proofs/number_of_pizzas_to_order.png" alt=""><br>
     <li>More specific get_integer validated functions (and therefore more specific feedback explaining index number and ordering limitations)</li><br>
     <img class="img-responsive" src="assets/img/validation_proofs/more_personalised_validated_integer.png" alt=""><br>
+    
+<h4><b>Totals function</b></h4><br>
+    <p>Testing menu option to understand program and show that my_order is being added to, appended</p>
+    <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br>
+    <p>Testing finished totals function</p>
+    <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""><br>
+    
+    <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
+    <p>Iterative decision of how to create a validated totals function</p>
+    <img class="img-responsive" src="assets/img/iterative_decision_for_validated_totalpizzasordered_function.png" alt=""><br>
+    <p>Failed test:</p>
+    <img class="img-responsive" src="assets/img/if_%3E_50_total_validation_test.png" alt=""><br>
+    <p>Needs more communication</p>
+    <img class="img-responsive" src="assets/img/validated_total_pizzas_error.png" alt=""><br>
+    <p>Final validated totals function:</p>
+    <img class="img-responsive" src="assets/img/only_50_in_total.png" alt=""><br>
 					</ol>
 					<hr>
                 
@@ -144,8 +170,6 @@ WHERE track_name like "R%";
 </code>
 </pre>
 
-                
-<table class="my-table"><tr><th>Tracks</th><th>Album</th><th>Artist</th></tr><tr><td>Rosalyn</td><td>Night moves</td><td>Bob Seger</td></tr><tr><td>Rock n' Roll Music</td><td>Rock n' Roll Music</td><td>The Beatles</td></tr><tr><td>Roll Over Beethoven</td><td>Rock n' Roll Music</td><td>The Beatles</td></tr><tr><td>Right Down The Lane</td><td>City to City</td><td>Gerry Rafferty</td></tr><tr><td>Ramblin Man</td><td>Brothers and Sister</td><td>The Allman Brothers Band</td></tr><tr><td>Rocket Man (I think it's going to be a long, long time)</td><td>Honky Chateau</td><td>Elton John</td></tr></table>
                 
             <hr>     
                 
