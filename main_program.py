@@ -2,56 +2,71 @@
 
 from validations import get_validated_integer, \
     get_validated_integer_pizzalimits, get_validated_string
-import math
 
 
 def stars():
-    """Print a line of * to separate information and make
-    the output easy to understand."""
+    """
+    Print a line of * to separate information.
+
+    This also makes the output easy to understand.
+    """
     print("*" * 60)
 
 
 def dotted():
-    """Print a line of . to separate information and make the
-    output easy to understand."""
+    """
+    Print a line of . to separate information.
+
+    It also makes the output easy to understand.
+    """
     print("." * 60)
 
 
 def single_loop_print(p):
-    """Print the list.
+    """
+    Print the list.
+
         :param L: list
         :return: None
+
     Print the list in a nice format and only once.
     """
-    output = "{: ^10} {:^15} {:^15} {:^15}".format("INDEX", "PRICE", "PIZZAS", "DESCRIPTION")
+    output = "{: ^10} {:^15} {:^15} {:^15}".\
+        format("INDEX", "PRICE", "PIZZAS", "DESCRIPTION")
     print(output)
     stars()
     for i in range(0, len(p)):
-        output = "{}:  {: ^25} --- {:<10} --- {:<10}".format(i, p[i][0], p[i][1], p[i][2])
+        output = "{}:  {: ^25} --- {:<10} --- {:<10}".format(i, p[i][0],
+                                                             p[i][1], p[i][2])
         print(output)
 
 
-def add_to_order(mo,p):
-    """Add pizza to order.
+def add_to_order(mo, p):
+    """
+    Add pizza to order.
 
-        :param L: list
-        :return: None
+    :param L: list
+    :return: None
 
-        The required list must be two-dimensional,
-        and the sub list must be of the form [str, int],
-        requests user input for index and quantity,
-        adds new pizza and quantity to the list,
-        prints confirmation.
-        """
+    The required list must be two-dimensional,
+    and the sub list must be of the form [str, int],
+    requests user input for index and quantity,
+    adds new pizza and quantity to the list,
+    prints confirmation.
+    """
     dotted()
-    pizza_choice_index = get_validated_integer("Enter pizza index number:", 0, len(p)-1)
+    pizza_choice_index = get_validated_integer("Enter pizza "
+                                               "index number:", 0, len(p)-1)
     chosen_pizza = p[pizza_choice_index][1]
-    ## get the total number of pizzas
+    # get the total number of pizzas
     total = total_pizzas_ordered(mo)
     print("You currently have {} pizzas in your order.".format(total))
-    quantity = get_validated_integer_pizzalimits("How many {} pizzas would you like?".format(chosen_pizza), 1, 5)
+    quantity = get_validated_integer_pizzalimits("How many {} "
+                                                 "pizzas would you like?".
+                                                 format(chosen_pizza), 1, 5)
     if total + quantity > 50:
-        print("You can only order 50 pizzas in total. You can only order {} more pizzas.".format(50-total))
+        print("You can only order 50 pizzas in total. "
+              "You can only order {} more pizzas.".format(50-total))
         return None
     dotted()
     temp_list = [chosen_pizza, quantity, p[pizza_choice_index][0]]
@@ -59,44 +74,63 @@ def add_to_order(mo,p):
 
 
 def review_order(mo):
+    """Inform the user their receipt is about to be printed."""
     print("Here is your order so far:")
-    for i in range(0, len(mo)):
-        order = "{: ^10} --- {:<10} --- {: ^10} ".format(mo[i][0], mo[i][1], mo[i][2])
-        print(order)
+    dotted()
 
 
 def total_pizzas_ordered(mo):
+    """
+    Return the total number of pizzas the user has ordered.
+
+    :param mo:
+    :return: integer
+    """
     total_sum = 0
     for i in range(0, len(mo)):
         total_sum += mo[i][1]
     return total_sum
-    #print("You have ordered {} pizzas in total".format(total_sum))
-    #dotted()
 
 
-def total_pizzas_ordered_mess(mo):
-    run = True
-    total_sum = 0
+def price_of_order(mo):
+    """
+    Return the total price and number of pizzas ordered in a receipt format.
+
+    :param mo:
+    :return: None
+    """
+    total_price = 0
     for i in range(0, len(mo)):
-        total_sum = total_sum + mo[i][1]
-    if total_sum > 50:
-        print("Your order has come to {} pizzas in total. You are only allowed to order 50 pizzas in total.".format(total_sum))
-        run = False
-    elif total_sum < 0:
-        print("You have to order at least one pizza in total.")
-        run = False
-    else:
-        print("You have ordered {} pizzas in total".format(total_sum))
-        dotted()
+        sub_total = mo[i][1] * mo[i][2]
+        order = "{: ^15} x {:<10} @ {: ^5.2f}      ${:<15.2f}".\
+            format(mo[i][0], mo[i][1], mo[i][2], sub_total)
+        print(order)
+        total_price = total_price + sub_total
+    dotted()
+    order = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
+        format("", "", "Total", total_price)
+    order_gst = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
+        format("", "", "GST", total_price*(3/23))
+    print(order)
+    print(order_gst)
+    dotted()
+    return None
 
 
 def quit_or_menu():
-    """Choose to either quit or view menu.
-        :param: None
-        :return: None
-        """
+    """
+    Choose to either quit or view menu.
+
+    :param: None
+    :return: None
+    """
     # this list is a list of the customer's ordered pizzas
     my_order = []
+    my_order_temp = [
+        ["Russia", 5, 25.5],
+        ["Botswana", 3, 18.5],
+        ["Africa", 2, 25.5],
+    ]
 
     price_of_regular = 18.5
     price_of_gourmet = price_of_regular + 7
@@ -104,7 +138,8 @@ def quit_or_menu():
     pizzas = [
         (price_of_regular, "USA", "A tasty meat lovers pizza"),
         (price_of_regular, "Australia", "Pineapple, shrimp and BBQ sauce"),
-        (price_of_gourmet, "Russia", "Mockba four fish pizza with sardines, tuna, mackerel and salmon"),
+        (price_of_gourmet, "Russia",
+         "Mockba four fish pizza with sardines, tuna, mackerel and salmon"),
         (price_of_gourmet, "India", "Pickled ginger and paneer")
     ]
 
@@ -123,33 +158,37 @@ def quit_or_menu():
 
     start = True
     run = True
-    while run == True:
+    while run is True:
         for i in range(0, len(option_menu)):
             print("{:3} : {}".format(option_menu[i][0], option_menu[i][1]))
-        option_choice = get_validated_string("What would you like to do? -> ", 0, 1).upper()
+        option_choice = get_validated_string("What would you like "
+                                             "to do? -> ", 0, 1).upper()
         dotted()
         if option_choice == "V":
             single_loop_print(pizzas)
             dotted()
         elif option_choice == "A":
             single_loop_print(pizzas)
-            if start == True:
+            if start is True:
                 dotted()
                 print("Start to fill out order")
                 start = False
             add_to_order(my_order, pizzas)
         elif option_choice == "R":
             review_order(my_order)
-            dotted()
             total_pizzas_ordered(my_order)
-            dotted()
+            price_of_order(my_order)
         elif option_choice == "Q":
             for i in range(0, len(confirm_quit)):
-                print("{:3} : {}".format(confirm_quit[i][0], confirm_quit[i][1]))
-            ask_quit_confirmation = get_validated_string("Are you sure you want to quit?").upper()
+                print("{:3} : {}".format(confirm_quit[i][0],
+                                         confirm_quit[i][1]))
+            ask_quit_confirmation = get_validated_string("Are you sure you "
+                                                         "want to quit?"
+                                                         "", 0, 1).upper()
             dotted()
             if ask_quit_confirmation == "Y":
-                print("Thank you for visiting Marsden Pizzas. Hope to see you again!")
+                print("Thank you for visiting Marsden Pizzas. "
+                      "Hope to see you again!")
                 dotted()
                 run = False
             elif ask_quit_confirmation == "N":
@@ -158,7 +197,7 @@ def quit_or_menu():
                 print("You have requested an invalid choice.")
                 dotted()
         elif option_choice == "T":
-            print("hey")
+            price_of_order(my_order_temp)
         else:
             print("You have requested an invalid choice.")
             dotted()

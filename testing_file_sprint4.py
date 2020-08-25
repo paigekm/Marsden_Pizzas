@@ -60,9 +60,7 @@ def add_to_order(mo,p):
 
 def review_order(mo):
     print("Here is your order so far:")
-    for i in range(0, len(mo)):
-        order = "{: ^10} --- {:<10} --- {: ^10} ".format(mo[i][0], mo[i][1], mo[i][2])
-        print(order)
+    dotted()
 
 
 def total_pizzas_ordered(mo):
@@ -75,13 +73,13 @@ def total_pizzas_ordered(mo):
 def price_of_order(mo):
     total_price = 0
     for i in range(0, len(mo)):
-        order = "{: ^15} --- {:<10} --- {: ^10} ".format(mo[i][0], mo[i][1], mo[i][2])
+        order = "{: ^15} x {:<10} @ {: ^5} ech ".format(mo[i][0], mo[i][1], mo[i][2])
         print(order)
         sub_total= mo[i][1] * mo[i][2]
-        print("Your order of {} pizzas comes to a total of {}".format(mo[i][0], sub_total))
+        print("= {: ^10}".format(sub_total))
         total_price = total_price + sub_total
-        dotted()
-    print("Your order is ${} overall".format(total_price))
+    dotted()
+    print("Your order is ${} in total".format(total_price))
     dotted()
     return None
 
@@ -141,9 +139,8 @@ def quit_or_menu():
             add_to_order(my_order, pizzas)
         elif option_choice == "R":
             review_order(my_order)
-            dotted()
             total_pizzas_ordered(my_order)
-            dotted()
+            price_of_order(my_order)
         elif option_choice == "Q":
             for i in range(0, len(confirm_quit)):
                 print("{:3} : {}".format(confirm_quit[i][0], confirm_quit[i][1]))
@@ -159,7 +156,7 @@ def quit_or_menu():
                 print("You have requested an invalid choice.")
                 dotted()
         elif option_choice == "T":
-            price_of_order(my_order_temp)
+            print("Hey")
         else:
             print("You have requested an invalid choice.")
             dotted()
