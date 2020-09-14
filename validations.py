@@ -38,6 +38,8 @@ def get_validated_integer_pizzalimits(message, min, max):
     is greater than our min and less than our maximum.
     loops until an acceptable input is received
 
+    Includes error messages for an index number entry
+
     :param M: str
     :param min: int
     :param max: int
@@ -66,6 +68,8 @@ def get_validated_string(message, min, max):
 
     And tests that the length of the string is,
     greater than 1 or less than a maximum.
+
+    Includes error messages for a number of pizzas in the order entry
 
     :param M: str
     :param min: int
