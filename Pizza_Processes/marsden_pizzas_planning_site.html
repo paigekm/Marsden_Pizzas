@@ -31,6 +31,7 @@
 					<li><a href="#2">Sprint 2</a></li>
 					<li><a href="#3">Sprint 3</a></li>
                     <li><a href="#4">Sprint 4</a></li>
+                    <li><a href="#4">Sprint 5</a></li>
 				</ul>
 			</div>
 			<div class="content">
@@ -48,71 +49,63 @@
                 <img class="img-responsive" src="assets/img/sprint1_prices_function_plan.jpg" alt=""><br>
 <h4>Sprint board</h4>
                 <img class="img-responsive" src="assets/img/sprint1_board.png" alt=""><br>
- <h4>Reflection (+ anything about relevant implications)</h4><br>
-                <h5>Git commit</h5>
+                <h4>Git commit</h4>
                 <img class="img-responsive" src="assets/img/making_git_repository.png" alt=""><br>
-                <p>This first sprint was successful ... </p>
+ <h4>Reflection</h4>
+                <p>This first sprint was successful as I created a basic program which prints the main menu, giving the user the option to either view the pizza menu or quit.</p>
 
 <hr>
 <h1 id="2">Sprint Two</h1>
-<h4>Plan for Sprint 2</h4> 
-<h3>Errors</h3>
-                <h4><b>Index out of range:</b></h4>
-                <img class="img-responsive" src="assets/img/index_out_of_range.png" alt="">
+                
+                <p>In Sprint Two I designed a program which allows the user to enter the customer's pizza order and stores this information.</p>
+
+                <h4>Testing</h4><br>
+
+                <h5>Frau:</h5><video width="320" height="240" controls>
+  <source src="assets/videos/frau_testing.mp4" type="video/mp4">
+</video><br>
+                <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br>
+I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give frau an idea of what she needs to enter when asked to choose a pizza.</p>
+                
+<h4>Errors</h4>
+                <p>Below are some Errors I found when testing Sprint Two, and how I addressed/or plan to address them.</p>
+                <ol>
+                <li><h5>Index out of range:</h5><br>
                 <video width="500"  controls>
                 <source src="assets/videos/index_out_of_range.mp4" type="video/mp4">
-                </video>
-                <h4>Solution to error:</h4>
-                <p>I will address this through validations in Sprint Three</p><br>
+                </video><br>
+                <br><h5>Solution to error:</h5>
+                <p>I will address this in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.</p><br></li>
                 
-                <h4><b>Using the pizza's colloquial name (rather than index) when printing messages to the user</b></h4>
-                <img class="img-responsive" src="assets/img/how_many_0_pizzas_would_you_like?.png" alt="">
-                <h4>Solution to error:</h4>
-                <img class="img-responsive" src="assets/img/working.png" alt=""><br>
+                <li><h5>Using the pizza's colloquial name (rather than index) when printing messages to the user</h5>
+                    <img class="img-responsive" src="assets/img/how_many_0_pizzas_would_you_like?.png" alt="">  
+                <h5>Solution to error:</h5>
+                <img class="img-responsive" src="assets/img/working.png" alt=""><br></li>
                 
-                <h4><b>Re-asks to "Start" order midway through</b></h4>
+                    
+                <li><h5>Re-asks to "Start" order midway through</h5>
                 <img class="img-responsive" src="assets/img/asks_to_start_order_again_halfwaythrough.png" alt="">
-                <h4>Solution to error:</h4>
+                <h5>Solution to error:</h5>
                 <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
-                <br>
+                <br></li>              
                 
-<h4>Testing</h4>
-                <h5>Georgina:</h5>
-                <p>insert video here</p>
+                </ol>
                 
-                <h5>Frau:</h5>
-                <video width="320" height="240" controls>
-  <source src="assets/videos/frau_testing.mp4" type="video/mp4">
-</video>
                 
-                <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br>
-I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give frau an idea of what she needs to enter when asked to choose a pizza
-</p>
+                
  <h4>Reflection</h4>
-                <img class="img-responsive" src="assets/img/code_checker_endofv2.png" alt="">
+                
+                
+
                 
                 
                 
 <hr>
 <h1 id="3">Sprint Three</h1>
 <h4>Plan</h4>
-        <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> 
-                
-<h4><b>Program fixes:</b></h4>
-                <h5>Error and Solution 1</h5>
-                <p>Naming the specific pizza when asking "How many AUSTRALIA pizzas would you like?"</p>
-                <h5>Errors:</h5>
-                <img class="img-responsive" src="assets/img/error_and_fix1/how_many_0_pizzas_would_you_like?%20copy.png" alt="">  
-                <img class="img-responsive" src="assets/img/error_and_fix1/number_of_%7B%7D_error.png" alt=""> 
-                <h5>Solved:</h5>
-                <img class="img-responsive" src="assets/img/error_and_fix1/working%20copy.png" alt=""> 
-                
-                 <h5>Only prints start order at the beginning</h5><br>
-                <p>you don't need to include this twice!!</p>
-                <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
-                
+        <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> <br><br>
                           
-<h4><b>Validated functions:</b></h4>
+<h4><b>Validation errors that the validated_integer and validated_string functions in this sprint solved:</b></h4>
 <ol>
     <li>If the user enters a string when an integer is requested</li><br>
     <img class="img-responsive" src="assets/img/validation_proofs/enter_string_instead_of_integer.png" alt=""><br>
@@ -122,33 +115,46 @@ I also found out I needed to clarify what an index number is, so I added an extr
     <img class="img-responsive" src="assets/img/validation_proofs/enter_a_string_that_isn't_anoption.png" alt=""><br>
     <li>If the user tries to enter more pizzas than is allowed</li><br>
     <img class="img-responsive" src="assets/img/validation_proofs/number_of_pizzas_to_order.png" alt=""><br>
-    <li>More specific get_integer validated functions (and therefore more specific feedback explaining index number and ordering limitations)</li><br>
+    <li>More specific feedback explaining index number and ordering limitations</li><br>
     <img class="img-responsive" src="assets/img/validation_proofs/more_personalised_validated_integer.png" alt=""><br>
+     <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
+    <img class="img-responsive" src="assets/img/plan_numberofpizzas_validation.jpg" alt=""><br>
     
 <h4><b>Totals function</b></h4><br>
-    <p>Testing menu option to understand program and show that my_order is being added to, appended</p>
+    <p>I created a testing option in the menu to understand program and quickly show that my_order is being added to, appended</p>
     <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br>
     <p>Testing finished totals function</p>
     <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""><br>
     
-    <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
-    <img class="img-responsive" src="assets/img/plan_numberofpizzas_validation.jpg" alt=""><br>
-    <p>Iterative decision of how to create a validated totals function</p>
+   
+    <p>Iterative decision of how to create a validated totals function: 1st Option and 2nd option</p>
     <img class="img-responsive" src="assets/img/iterative_decision_for_validated_totalpizzasordered_function.png" alt=""><br>
     <p>Failed test:</p>
     <img class="img-responsive" src="assets/img/if_%3E_50_total_validation_test.png" alt=""><br>
-    <p>Needs more communication</p>
-    <img class="img-responsive" src="assets/img/validated_total_pizzas_error.png" alt=""><br>
     <p>Final validated totals function:</p>
     <img class="img-responsive" src="assets/img/only_50_in_total.png" alt=""><br>
 					</ol>
 					<hr>
                 
-<h4>Reflection (+ anything about relevant implications)</h4><hr>
+                
+<h4>Git commit and git history at the end of Sprint 3</h4><br>
+                <div class="col-container">
+                <video width="320" height="240" controls>
+                <source src="assets/videos/git_commit_history_endofsprint3.mp4" type="video/mp4">
+                </video>
+                <div class="col">
+                <img class="img-responsive" src="assets/img/git_commit_proof_endofsprint3.png" alt="">
+                <div class="col">
+                
+                </div></div>
+        
+   <br>  <hr>           
+                
+<h4>Reflection</h4><hr>
                 
             <h5>What went right:</h5> 
             
-					<hr><ul>
+	<ul>
 						<li>Design decisions</li>
                 <img class="img-responsive" src="assets/img/sprint3_design_decision.JPG" alt=""><br>
                 <img class="img-responsive" src="assets/img/design_decision2.JPG" alt=""><br>
@@ -179,33 +185,39 @@ I also found out I needed to clarify what an index number is, so I added an extr
 					</ul><hr>
             
                 
-<h5>Git commit and git history at the end of Sprint 3</h5>
-                <p>Insert video here of the screen recording of your git commit history timeline</p>
-<hr>
-<h4> Relevant Implications Summary</h4>
- <hr>
- <hr>
-                
 
 <hr>
 <h1 id="4">Sprint Four</h1>
-<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> 
+<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> <br>
                 
-                <h4>Calculate total pizzas ordered (totals function)</h4>
-                <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""> 
                 <h4>Calculate the cost of each type of pizza</h4>
                 <img class="img-responsive" src="assets/img/total_price_of_one_type.png" alt=""> 
                 <h4>Calculate the total cost of order (price function)</h4>
-                <img class="img-responsive" src="assets/img/total_price_working.png" alt=""> 
-                
- <h4>Reflection (+ anything about relevant implications)</h4><hr>
+                <img class="img-responsive" src="assets/img/total_price_working.png" alt="">
+                <h4>Calculate the GST and include as part of receipt</h4>
+                <img class="img-responsive" src="assets/img/gst_plan.JPG" alt=""><br><br>
+                    
+
+ <h4>Reflection (+ anything about relevant implications)</h4>
                 
             <h5>What went right:</h5> 
             
-					<hr><ul>
+					<ul>
 						<li>Made a temp list for easy testing and included a test menu option to speed up my design process</li><br>
                         <img class="img-responsive" src="assets/img/made_a_temp_list_for_easy_testing.png" alt=""> 
-						<li></li>
+						<li>Imitated the formatting of an actual Countdown reciept</li>
+                    <div class="col-container">
+                <div class="col">
+                   <img class="img-responsive" src="assets/img/2@quantity.JPG" alt=""><br>
+                    <img class="img-responsive" src="assets/img/reciept_format_total.JPG" alt=""><br>
+                    <img class="img-responsive" src="assets/img/total_inc_gst.JPG" alt=""><br>
+                 </div>
+                <div class="col">
+        <img class="img-responsive" src="assets/img/GSTworking.png" alt="">
+                </div></div><hr>
+
+                    
+                    
 						<li></li>
 						<li></li>
 						<li></li>
@@ -231,132 +243,73 @@ I also found out I needed to clarify what an index number is, so I added an extr
 						<li></li>
 					</ul><hr>
                 
+<h4>Overall Project backlog at this point</h4> <br><img class="img-responsive" src="assets/img/project%20backlog_endofs4.png" alt=""> <br>             
                 
-                
-<hr><h4>Code checker - at the end of Sprint 4</h4><hr>
+<h4>Code checker - at the end of Sprint 4</h4>
                 <div class="col-container">
                 <div class="col">
                 <img class="img-responsive" src="assets/img/codecheck_32errors.png" alt=""> </div>
                 <div class="col">
                 <img class="img-responsive" src="assets/img/free_from_style_issues.png" alt="">
                 </div></div><hr>
+                
+<h4>Git commit and git history at the end of Sprint 4</h4>
+                    <div class="col-container">
+                    <div class="col">
+                <video width="320" height="240" controls>
+                <source src="assets/videos/network_endofsprint4.mov" type="video/mp4">
+                </video></div>
+                        <div class="col">
+                <img class="img-responsive" src="assets/img/commit_history_expanded.png" alt=""> </div>  
+                    </div></div>
+<hr>
+                
+        
+<h1 id="5">Sprint Five</h1>
+<h4>Purpose of Sprint 5</h4>
+        <img class="img-responsive" src="assets/img/purpose_version5.JPG" alt=""> <br>
+<h4>Two plans for different ways of designing the Update function:</h4>
+<div class="col-container">
+                <div class="col">
+                <img class="img-responsive" src="assets/img/update_plan1.JPG" alt=""> </div>
+                <div class="col">
+                <img class="img-responsive" src="assets/img/update_plan2.JPG" alt="">
+                </div></div> 
+                    
+           
+                    
+                    
+                    
+<hr>                   
+<h1>Lesson Standups</h1>
+            <div class="col-container">
+                <div class="col">
+                <img class="img-responsive" src="assets/img/standups/28_july.jpg" alt=""> </div>
+                <div class="col">
+                <img class="img-responsive" src="assets/img/standups/20aug.jpg" alt="">
+                </div></div>
+            <div class="col-container">
+                <div class="col">
+                <img class="img-responsive" src="assets/img/standups/24_aug.jpg" alt=""> </div>
+                <div class="col">
+                <img class="img-responsive" src="assets/img/standups/25_aug.JPG" alt="">
+                </div></div>
+                <hr>
+                    
+<h4> Relevant Implications Summary</h4>
+ <hr>
             
    
                 
                 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-
-    <!-- Paragraphs -->
-    <h3>Example code and table layout</h3>
-	
-                
-
-
-<pre style="font-size: 1.5em;">
-<code class="SQL">
-SELECT track_name as "Tracks", 
-album_name as "Album", album_artist as "Artist"
-FROM music_table
-WHERE track_name like "R%";
-</code>
-</pre>
-
-                
-            <hr>     
-                
-                <h3>Example paragraph</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-					<hr>
-
-					<!-- Responsive images -->
-					<h3>Example image placements</h3>
-					<p>For images to be responsive (so that they will rescale to suit the width of the parent, use the <code>.img-responsive</code> class.</p>
-					<img class="img-responsive" src="assets/img/place_holder.png" alt="">
-                <hr>
-                <div class="col-container">
-                <div class="col">
-               <img class="img-responsive" src="assets/img/place_holder_sm.jpg" alt="">
-                <p>Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci tation ullamcorper</a> suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel.</p>
-                </div>
-                 <div class="col">
-                <img class="img-responsive" src="assets/img/place_holder_sm.jpg" alt="">
-                <p>Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci tation ullamcorper</a> suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel.</p>
-                </div>
-                </div>
-                <hr>
-               
-              
-
-					<!-- Lists -->
-					<h3>Unordered list</h3>
-					<p>Unordered lists are used to markup lists where list items do not require numbering.</p>
-					<ul>
-						<li>Ut wisi enim ad minim veniam</li>
-						<li>Quis nostrud exerci tation</li>
-						<li>Lamcorper suscipit lobortis nis</li>
-						<li>Ut aliquip ex ea commodo consequat</li>
-						<li>Duis autem vel eum iriure dolor</li>
-					</ul>
-					<hr>
-
-					<h3>Ordered list</h3>
-					<p>Ordered lists are used to markup lists where list items require numbering.</p>
-					<ol>
-						<li>Hendrerit in vulputate velit esse</li>
-						<li>Olestie consequat</li>
-						<li>Vel illum dolore eu feugiat</li>
-						<li>Nulla facilisis at vero eros</li>
-						<li>Accumsan et iusto odio</li>
-					</ol>
-					<hr>
-
-					<h3>Unstyled list</h3>
-					<p>You can make the list unstyled using the <code>list-unstyled</code> class.</p>
-					<ul class="list-unstyled">
-						<li>Ut wisi enim ad minim veniam</li>
-						<li>Quis nostrud exerci tation</li>
-						<li>Lamcorper suscipit lobortis nis</li>
-						<li>Ut aliquip ex ea commodo consequat</li>
-						<li>Duis autem vel eum iriure dolor</li>
-					</ul>
-					<hr>
-
-					<h3>Inline list</h3>
-					<p>You can make the list display inline using the <code>list-inline</code> class.</p>
-					<ul class="list-inline">
-						<li>One</li>
-						<li>Two</li>
-						<li>Three</li>
-						<li>Four</li>
-					</ul>
-					<hr>
-
-				
-
-					<h3>Buttons</h3>
-					<p>You can apply the <code>btn</code> class to any element that requires a button style.</p>
-					<p><a href="#" class="btn">Submit</a></p>
-					<hr>
-
-
-
-               
             
-
 			
 			</div>
 			<div class="footer">
-				&copy; Copyright 2015
+				&copy; Copyright 2020 Paige M
 			</div>
 		</div>
+            
 	</body>
 </html>
