@@ -226,11 +226,6 @@ def quit_or_menu():
     :param: None
     :return: None
     """
-    # this list is a list of the customer's ordered pizzas
-    my_order = []
-    # starts the ordering process
-    start_order = True
-
     price_of_regular = 18.5
     price_of_gourmet = price_of_regular + 7
 
@@ -258,9 +253,27 @@ def quit_or_menu():
         ("N", "Go back to menu page")
     ]
 
-    start = True
+    confirm_cancel = [
+        ("Y", "Continue to cancel order"),
+        ("N", "Go back to menu page")
+    ]
+
+    # starts the ordering process
+    start_order = True
+    # when the first pizza is ordered
+    first_pizza_in_the_order = True
     run = True
     while run is True:
+        # informs the user a completely new order is being made
+        if start_order == True:
+            dotted()
+            print("A new order is starting now")
+            dotted()
+            # this list is a list of the customer's ordered pizzas
+            # this list is empty when a new order is started and is then appended
+            my_order = []
+            # once the order has been started, it is not a completely new order anymore
+            start_order = False
         # runs the main option menu
         for i in range(0, len(option_menu)):
             print("{:3} : {}".format(option_menu[i][0], option_menu[i][1]))
@@ -274,10 +287,13 @@ def quit_or_menu():
         elif option_choice == "A":
             # allows the user to add a pizza type to the order
             single_loop_print(pizzas)
-            if start is True:
+            # this message only prints when the order is initially empty and the first pizza is added
+            # this is not printed every time the user orders a different pizza type in their order
+            if first_pizza_in_the_order is True:
                 dotted()
                 print("Start to fill out order")
-                start = False
+                # this is false once the first pizza is ordered
+                first_pizza_in_the_order = False
             add_to_order(my_order, pizzas)
 
         elif option_choice == "R":
@@ -299,9 +315,23 @@ def quit_or_menu():
 
         elif option_choice == "C":
             # ends the ordering process
-            if start_order = True
-            print("Get customer order details")
-            start_order = False
+            if start_order == False:
+                # user can cancel their whole order but is asked to confirm first
+                for i in range(0, len(confirm_cancel)):
+                    print("{:3} : {}".format(confirm_cancel[i][0],
+                                             confirm_cancel[i][1]))
+                ask_cancel_confirmation = get_validated_string("Are you sure you "
+                                                             "want to cancel your order?"
+                                                             "", 0, 1).upper()
+                dotted()
+                if ask_cancel_confirmation == "Y":
+                    start_order = True
+                elif ask_cancel_confirmation == "N":
+                    run = True
+                else:
+                    print("You have requested an invalid choice.")
+                    dotted()
+
 
         elif option_choice == "Q":
             # user can quit the whole program but is asked to confirm first
@@ -322,6 +352,7 @@ def quit_or_menu():
             else:
                 print("You have requested an invalid choice.")
                 dotted()
+
         elif option_choice == "T":
             price_of_order(my_order)
         else:
