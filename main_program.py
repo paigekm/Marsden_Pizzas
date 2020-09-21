@@ -274,7 +274,11 @@ def quit_or_menu():
                 price_of_order(my_order)
 
         elif option_choice == "U":
-            update(my_order)
+            if len(my_order) == 0:
+                print("You have no pizzas to update. Please add pizzas to your order first.")
+                dotted()
+            else:
+                update(my_order)
 
         elif option_choice == "Q":
             for i in range(0, len(confirm_quit)):

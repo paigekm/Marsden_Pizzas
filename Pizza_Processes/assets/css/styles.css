@@ -173,9 +173,10 @@ column styles
 Single styles
 ------------------------*/
 
-video{
+.vid{
     display: block;
     margin:auto;
+  
 }
 
 .img-responsive { 
