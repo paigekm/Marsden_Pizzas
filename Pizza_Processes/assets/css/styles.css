@@ -248,6 +248,12 @@ Single styles
 	padding-left: 5px;
 }
 
+.blockcolour
+{
+    background-color: #EDFEF9;
+    padding: 45px ;
+}
+
 /* -----------------------
 Wide styles
 ------------------------*/

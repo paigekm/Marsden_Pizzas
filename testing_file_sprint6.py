@@ -332,7 +332,6 @@ def quit_or_menu():
                     print("You have requested an invalid choice.")
                     dotted()
 
-
         elif option_choice == "Q":
             # user can quit the whole program but is asked to confirm first
             for i in range(0, len(confirm_quit)):

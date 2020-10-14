@@ -32,6 +32,10 @@
 					<li><a href="#3">Sprint 3</a></li>
                     <li><a href="#4">Sprint 4</a></li>
                     <li><a href="#5">Sprint 5</a></li>
+                    <li><a href="#6">Sprint 6</a></li>
+                    <li><a href="#A">Applied test</a></li>
+                    <li><a href="#7">Sprint 7</a></li>
+                    <li><a href="#R">Relevant Implications</a></li>
 				</ul>
 			</div>
 			<div class="content">
@@ -40,217 +44,228 @@
 
 			
                     
-					<h1>Brief</h1>
-      <h4>To create a program which allows a user to enter customer details (address, name, pickup/delivery requirements and their pizza order). <br>This information, including delivery details, itemised order and total cost, will be stored and displayed to the user in a receipt format.</h4>
-					<hr>
-    <!-- Heading levels -->
-    <h1 id="1">Sprint One</h1>
+<h1>Brief</h1>
+      <h4>To create a program which allows a user to enter customer details (address, name, pickup/delivery requirements and their pizza order). <br><br>This information, including delivery details, itemised order and total cost, will be stored and displayed to the user in a receipt format.</h4><hr>
+                
+                <div class="blockcolour">
+                <h3>Overall Project Backlog</h3>
+                <p>This is my Project Backlog at the end of the project. <br>The Done column shows all the functions I incorporated, and the To Do column shows potential additions I could develop in the future.</p>
+                <video class="img-responsive" width="600" controls>
+                    <source src="assets/videos/overall_project_backlog.mp4" type="video/mp4"></video><br>
+                </div>
+                <hr>
+                    
+    
+<!-- Heading levels -->
+<h1 id="1">Sprint One</h1>
+                
+        <p>A program which offers a basic main menu, with an option to either View the pizza menu, or Quit the program. <br>If the user chooses the Quit option, they are asked for confirmation to either end the program or return to the main menu.</p>
                 <img class="img-responsive" src="assets/img/sprint_1_plan.jpg" alt=""><br>
                 <img class="img-responsive" src="assets/img/sprint1_prices_function_plan.jpg" alt=""><br>
-<h4>Sprint board</h4>
+                <h4>Sprint board</h4>
                 <img class="img-responsive" src="assets/img/sprint1_board.png" alt=""><br>
+                <div class="blockcolour">
                 <h4>Git commit</h4>
                 <img class="img-responsive" src="assets/img/making_git_repository.png" alt=""><br>
+                </div>
                 <h4>Test to show the basic program I created in Sprint 1</h4>
                 <img class="img-responsive" src="assets/img/sprint_1_test.png" alt=""><br>
                 
- <h4>Reflection</h4>
-                <p>This first sprint was successful as I created a basic program which prints the main menu, giving the user the option to either view the pizza menu or quit.</p>
+                <h4>Reflection</h4>
+                    <p>This first sprint was successful as I created a basic program as outlined in the aim. The confirmation option was important to avoid miscommunication.</p><hr>
 
-<hr>
 <h1 id="2">Sprint Two</h1>
                 
-                <p>In Sprint Two I designed a program which allows the user to enter the customer's pizza order and stores this information. I created an add function in this sprint to add a new pizza to the order. When this function is called, it prints the pizza options, requests user input of the index number of the pizza type the user would like to order, and requests an integer entry for how many of that pizza they would like. Finally, it prints their order so far in a simple format.</p>
+                <p>A program which allows the user to enter the customer's pizza order and stores this information. <br>This sprint's 'add' function, adds a new pizza to the order. When this function is called, it prints the pizza menu, requests user input of the index number for the pizza type they would like to order, and requests an integer entry for how many of that pizza type they would like. <br>Finally, it prints their order so far in a simple format.</p>
+                
+                <br><img class="img-responsive" src="assets/img/sprint2_plan.jpg" alt=""><br>
+                <img class="img-responsive" src="assets/img/sprint2_plan_view.jpg" alt=""><br>
+                
                 <br><h4>Sprint board</h4>
-                <img class="img-responsive" src="assets/img/sprint2_sprintboard.png" alt=""><br>
+                    <img class="img-responsive" src="assets/img/sprint2_sprintboard.png" alt=""><br>
 
                 <h4>Testing</h4><br>
 
-                <h5>Frau:</h5><video class="img-responsive" width="600" controls>
-  <source src="assets/videos/frau_testing.mp4" type="video/mp4">
-</video><br>
-                <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br>
-I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give frau an idea of what she needs to enter when asked to choose a pizza.</p>
+                    <h5>Frau:</h5><video class="img-responsive" width="600" controls>
+                    <source src="assets/videos/frau_testing.mp4" type="video/mp4"></video><br>
+                    <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br> I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give frau an idea of what she needs to enter when asked to choose a pizza.</p>
+                <br><br>
+                <h4>Errors</h4>
+                    <p>Below are some Errors I found when testing Sprint Two, and how I addressed/or plan to address them.</p>
+                    <ol>
+                    <li><h5>Index out of range:</h5><br>
+                    <video class="img-responsive" width="600"  controls>
+                    <source src="assets/videos/index_out_of_range.mp4" type="video/mp4">
+                    </video><br>
+                    <br><h5>Solution to error:</h5>
+                    <p>I will address this error in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.</p><br></li>
                 
-<h4>Errors</h4>
-                <p>Below are some Errors I found when testing Sprint Two, and how I addressed/or plan to address them.</p>
-                <ol>
-                <li><h5>Index out of range:</h5><br>
-                <video class="img-responsive" width="600"  controls>
-                <source src="assets/videos/index_out_of_range.mp4" type="video/mp4">
-                </video><br>
-                <br><h5>Solution to error:</h5>
-                <p>I will address this in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.</p><br></li>
-                
-                <li><h5>Using the pizza's colloquial name (rather than index) when printing messages to the user</h5>
-                    <img class="img-responsive" src="assets/img/how_many_0_pizzas_would_you_like?.png" alt="">  
-                <h5>Solution to error:</h5>
-                <img class="img-responsive" src="assets/img/working.png" alt=""><br></li>
+                    <li><h5>Using the pizza's index number (rather than pizza name) when printing the receipt and user messages</h5>
+                        <img class="img-responsive" src="assets/img/number_not_name.png" alt="">  
+                    <h5>Solution to error:</h5>
+                    <img class="img-responsive" src="assets/img/working.png" alt=""><br></li>
                 
                     
-                <li><h5>Re-asks to "Start" order midway through</h5>
-                <img class="img-responsive" src="assets/img/asks_to_start_order_again_halfwaythrough.png" alt="">
-                <h5>Solution to error:</h5>
-                <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
-                <br></li>              
-                
-                </ol>
-                
-                
-                
- <h4>Reflection</h4>
-                
-                
+                    <li><h5>Re-asks to "Start" order midway through</h5>
+                    <img class="img-responsive" src="assets/img/asks_to_start_order_again_halfwaythrough.png" alt="">
+                    <h5>Solution to error:</h5>
+                    <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
+                    <br></li>              
 
+                    </ol>
+                
+                <h4>Reflection</h4><hr>
                 
                 
-                
-<hr>
 <h1 id="3">Sprint Three</h1>
-<h4>Plan</h4>
-        <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> <br><br>
                 
-        <br><h4>Sprint board</h4>
-        <video class="img-responsive" width="600"  controls>
-                <source src="assets/videos/sprint3_sprintboard.mp4" type="video/mp4">
-                </video><br>        
+                <p>This is my Validations Sprint. Validating my functions enables me to set boundaries for the user's input, and ensures the program doesn't crash when unexpected input is entered.</p>
+                
+                <h4>Plan</h4>
+                    <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> <br><br>
+                
+                <br><h4>Sprint board</h4>
+                    <video class="img-responsive" width="600"  controls>
+                            <source src="assets/videos/sprint3_sprintboard.mp4" type="video/mp4">
+                            </video><br>        
                           
-<h4><b>Validation errors that the validated_integer and validated_string functions in this sprint solved:</b></h4>
-<ol>
-    <li>If the user enters a string when an integer is requested</li><br>
-    <img class="img-responsive" src="assets/img/validation_proofs/enter_string_instead_of_integer.png" alt=""><br>
-    <li>If the user enters an integer when a string is requested</li><br>
-    <img class="img-responsive" src="assets/img/validation_proofs/integer_instead_of_string.png" alt=""><br>
-    <li>If the user enters an string that isn't one of the menu options</li><br>
-    <img class="img-responsive" src="assets/img/validation_proofs/enter_a_string_that_isn't_anoption.png" alt=""><br>
-    <li>If the user tries to enter more pizzas than is allowed</li><br>
-    <img class="img-responsive" src="assets/img/validation_proofs/number_of_pizzas_to_order.png" alt=""><br>
-    <li>More specific feedback explaining index number and ordering limitations</li><br>
-    <img class="img-responsive" src="assets/img/validation_proofs/more_personalised_validated_integer.png" alt=""><br>
-     <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
-    <img class="img-responsive" src="assets/img/plan_numberofpizzas_validation.jpg" alt=""><br>
-    
-<h4><b>Totals function</b></h4><br>
-    <p>I created a testing option in the menu to understand program and quickly show that my_order is being added to, appended</p>
-    <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br>
-    <p>Testing finished totals function</p>
-    <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""><br>
-    
-   
-    <p>Iterative decision of how to create a validated totals function: 1st Option and 2nd option</p>
-    <img class="img-responsive" src="assets/img/iterative_decision_for_validated_totalpizzasordered_function.png" alt=""><br>
-    <p>Failed test:</p>
-    <img class="img-responsive" src="assets/img/if_%3E_50_total_validation_test.png" alt=""><br>
-    <p>Final validated totals function:</p>
-    <img class="img-responsive" src="assets/img/only_50_in_total.png" alt=""><br>
-					</ol>
-					<hr>
+                <h4><b>Validation errors that the validated_integer and validated_string functions in this sprint solved:</b></h4>
+                <ol>
+                    <li>If the user enters a string when an integer is requested</li><br>
+                    <img class="img-responsive" src="assets/img/validation_proofs/enter_string_instead_of_integer.png" alt=""><br>
+                    <li>If the user enters an integer when a string is requested</li><br>
+                    <img class="img-responsive" src="assets/img/validation_proofs/integer_instead_of_string.png" alt=""><br>
+                    <li>If the user enters an string that isn't one of the menu options</li><br>
+                    <img class="img-responsive" src="assets/img/validation_proofs/enter_a_string_that_isn't_anoption.png" alt=""><br>
+                    <li>If the user tries to enter more pizzas than is allowed</li><br>
+                    <img class="img-responsive" src="assets/img/validation_proofs/number_of_pizzas_to_order.png" alt=""><br>
+                    <li>More specific feedback explaining index number and ordering limitations</li><br>
+                    <img class="img-responsive" src="assets/img/validation_proofs/more_personalised_validated_integer.png" alt=""><br>
+                    <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
+                    </ol>
+                    <hr>
+                    <h2>Sprint 3.5 </h2>
+                    <p>This sub-sprint incorporates a Totals function, which calculates the total number of pizzas in the order so far. Creating this function allows me to validate the user's entry, by ensuring there can be a limit (5 max) of the total number of pizzas in their order.</p>
+                    <br>
+                    
+                    <img class="img-responsive" src="assets/img/plan_numberofpizzas_validation.jpg" alt=""><br>
+
+                    <p>I created a testing option in the menu to understand program and quickly show that my_order is being added to, appended</p>
+                    <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br>
+                    <p>Testing finished totals function</p>
+                    <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""><br>
+
+
+                    <p>Iterative decision of how to create a validated totals function: 1st Option and 2nd option</p>
+                    <img class="img-responsive" src="assets/img/iterative_decision_for_validated_totalpizzasordered_function.png" alt=""><br>
+                    <p>Failed test:</p>
+                    <img class="img-responsive" src="assets/img/if_%3E_50_total_validation_test.png" alt=""><br>
+                    <p>Final validated totals function:</p>
+                    <img class="img-responsive" src="assets/img/only_50_in_total.png" alt=""><br>
+                                    
+                                  
+
+<div class="blockcolour">
+                <h4>Git commit and git history at the end of Sprint 3</h4><br>
+
+                                <video class="img-responsive" width="600"  controls>
+                                <source src="assets/videos/git_commit_history_endofsprint3.mp4" type="video/mp4">
+                                </video>
+                               <br>
+    <img class="img-responsive" src="assets/img/git_commit_proof_endofsprint3.png" alt=""><br></div><hr>           
                 
+                <h4>Reflection</h4>
                 
-<h4>Git commit and git history at the end of Sprint 3</h4><br>
-              
-                <video class="img-responsive" width="600"  controls>
-                <source src="assets/videos/git_commit_history_endofsprint3.mp4" type="video/mp4">
-                </video>
-               <br>
-                <img class="img-responsive" src="assets/img/git_commit_proof_endofsprint3.png" alt="">
-                
-        
-   <br>  <hr>           
-                
-<h4>Reflection</h4>
-                
-            <h5>Design decisions</h5> 
-            
-					
-                <img class="img-responsive" src="assets/img/sprint3_design_decision.JPG" alt=""><br>
-                <img class="img-responsive" src="assets/img/design_decision2.JPG" alt=""><br>
+                    <h5>Design decisions</h5> 
+                    <img class="img-responsive" src="assets/img/sprint3_design_decision.JPG" alt=""><br>
+                    <img class="img-responsive" src="assets/img/design_decision2.JPG" alt=""><br>
 	
                 
-            <h5>Things to address in the next sprint:</h5>
-                
-              <p>When the list is empty (the user hasn't ordered any food yet), the review option/function should print a customised message to say "You haven't begun your order yet".</p><hr>
+                    <h5>Things to address in the next sprint:</h5>
+                    <p>When the list is empty (the user hasn't ordered any food yet), the review option/function should print a customised message to say "You haven't begun your order yet".</p><hr><hr>
             
                 
-
-<hr>
 <h1 id="4">Sprint Four</h1>
-<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> <br>
+                <p>A program which calculates total cost, and stores this information in a receipt when reviewing the customer order so far.</p>
+                <h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> <br>
+                <h4>Kanban Board</h4><br><img class="img-responsive" src="assets/img/sprintfour_kanban.png" alt=""><br>
                 
-                <h4>Calculate the cost of each type of pizza</h4>
-                <img class="img-responsive" src="assets/img/total_price_of_one_type.png" alt=""> 
-                <h4>Calculate the total cost of order (price function)</h4>
-                <img class="img-responsive" src="assets/img/total_price_working.png" alt="">
-                <h4>Calculate the GST and include as part of receipt</h4>
-                <img class="img-responsive" src="assets/img/gst_plan.JPG" alt=""><br><br>
+                    <h4>Calculate the cost of each type of pizza</h4>
+                    <img class="img-responsive" src="assets/img/total_price_of_one_type.png" alt=""> 
+                    <h4>Calculate the total cost of order (price function)</h4>
+                    <img class="img-responsive" src="assets/img/total_price_working.png" alt="">
+                
+<h1>Sprint 4.5</h1>
+                <p>A program which calculates the GST of the order, and shows this below the total cost on the receipt.</p>
+                    <h4>Calculate the GST and include as part of receipt</h4>
+                    <img class="img-responsive" src="assets/img/gst_plan.JPG" alt=""><br><br>
                     
 
- <h4>Reflection (+ anything about relevant implications)</h4>
+                <h4>Reflection (+ anything about relevant implications)</h4>
                 
-            <h5>What went right:</h5> 
-            
-					<ul>
-						<li>Made a temp list for easy testing and included a test menu option to speed up my design process</li><br>
-                        <img class="img-responsive" src="assets/img/made_a_temp_list_for_easy_testing.png" alt=""> 
-						<li>Imitated the formatting of an actual Countdown reciept</li>
-                    <div class="col-container">
-                <div class="col">
-                   <img class="img-responsive" src="assets/img/2@quantity.JPG" alt=""><br>
-                    <img class="img-responsive" src="assets/img/reciept_format_total.JPG" alt=""><br>
-                    <img class="img-responsive" src="assets/img/total_inc_gst.JPG" alt=""><br>
-                 </div>
-                <div class="col">
-        <img class="img-responsive" src="assets/img/GSTworking.png" alt="">
-                </div></div><hr>
+                    <h5>What went right:</h5> 
 
-                    
-                    
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul><hr>
-                
-            <h5>What didn't go right:</h5>
-                
-                <hr><ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul><hr>
-                
-            <h5>Things to address in the next sprint:</h5>
-                
-                <hr><ul>
-						<li>Allows the user to enter different currencies (relates to the relevant implications of cultural and accessibility)</li>
-						<li>In future sprints I am planning to carry out more validations. One example, is disallowing the user from entering one type of pizza twice eg. India - 2, then India - 5. Instead I should decide (iterative decision) as to whether I validate this to print a message saying you can't do this, or create a function to make a sum of all the India pizzas, regardless of what stage of the order they were entered.</li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul><hr>
-                
-<h4>Overall Project backlog at this point</h4> <br><img class="img-responsive" src="assets/img/project%20backlog_endofs4.png" alt=""> <br>             
-                
-<h4>Code checker - at the end of Sprint 4</h4>
-                <div class="col-container">
-                <div class="col">
-                <img class="img-responsive" src="assets/img/codecheck_32errors.png" alt=""> </div>
-                <div class="col">
-                <img class="img-responsive" src="assets/img/free_from_style_issues.png" alt="">
-                </div></div><hr>
-                
-<h4>Git commit and git history at the end of Sprint 4</h4>
-                    <div class="col-container">
-                    <div class="col">
-                <video class="img-responsive" width="600" controls>
-                <source src="assets/videos/network_endofsprint4.mov" type="video/mp4">
-                </video></div>
+                            <ul>
+                                <li>Made a temp list for easy testing and included a test menu option to speed up my design process</li><br>
+                                <img class="img-responsive" src="assets/img/made_a_temp_list_for_easy_testing.png" alt=""> 
+                                <li>Imitated the formatting of an actual Countdown reciept</li>
+                            <div class="col-container">
                         <div class="col">
-                <img class="img-responsive" src="assets/img/commit_history_expanded.png" alt=""> </div>  
-                    </div></div>
-<hr>
+                           <img class="img-responsive" src="assets/img/2@quantity.JPG" alt=""><br>
+                            <img class="img-responsive" src="assets/img/reciept_format_total.JPG" alt=""><br>
+                            <img class="img-responsive" src="assets/img/total_inc_gst.JPG" alt=""><br>
+                         </div>
+                        <div class="col">
+                <img class="img-responsive" src="assets/img/GSTworking.png" alt="">
+                        </div></div><hr>
+
+
+            
+                <h5>What didn't go right:</h5>
+
+                    <hr><ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul><hr>
+
+                <h5>Things to address in the next sprint:</h5>
+
+                    <hr><ul>
+                            <li>Allows the user to enter different currencies (relates to the relevant implications of cultural and accessibility)</li>
+                            <li>In future sprints I am planning to carry out more validations. One example, is disallowing the user from entering one type of pizza twice eg. India - 2, then India - 5. Instead I should decide (iterative decision) as to whether I validate this to print a message saying you can't do this, or create a function to make a sum of all the India pizzas, regardless of what stage of the order they were entered.</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul><hr>
+                                
+            <div class="blockcolour">
                 
+                <h4>Overall Project backlog at this point</h4> <br><img class="img-responsive" src="assets/img/project%20backlog_endofs4.png" alt=""> <br>             
+                
+                <h4>Code checker - at the end of Sprint 4</h4>
+                                <div class="col-container">
+                                <div class="col">
+                                <img class="img-responsive" src="assets/img/codecheck_32errors.png" alt=""> </div>
+                                <div class="col">
+                                <img class="img-responsive" src="assets/img/free_from_style_issues.png" alt="">
+                                </div></div><hr>
+
+                <h4>Git commit and git history at the end of Sprint 4</h4>
+                                    <div class="col-container">
+                                    <div class="col">
+                                <video class="img-responsive" width="600" controls>
+                                <source src="assets/videos/network_endofsprint4.mov" type="video/mp4">
+                                </video></div>
+                                        <div class="col">
+                                <img class="img-responsive" src="assets/img/commit_history_expanded.png" alt=""> </div>  
+                                    </div>
+                
+            </div>
+                <hr>
+
         
 <h1 id="5">Sprint Five</h1>
                 <p>My Sprint 5 is about creating an update function. This new update option in the menu allows the user to review their current order status, to remove   currently ordered pizzas or to change the number of pizzas ordered. </p>
@@ -266,6 +281,11 @@ I also found out I needed to clarify what an index number is, so I added an extr
                 <div class="col">
                 <img class="img-responsive" src="assets/img/update_plan2.JPG" alt="">
                 </div></div> 
+                          <br>      
+                                
+<h4>Kanban Board</h4>
+                <img class="img-responsive" src="assets/img/sprint5_kanban.png" alt=""> <br>
+                                
                 
 
                 
@@ -292,13 +312,48 @@ I also found out I needed to clarify what an index number is, so I added an extr
                     
 <hr>
 <h1 id="6">Sprint Six</h1>
+                                <p>In this Sprint, rather than creating a new function, I decided to run a "Cancel order" feature in the Main Menu. In all the functions that the user could be led to through the other menu options, there s always a quit option available which returns them to the main menu. This means this new Cancel feature is easily accessible from anywhere in the program, addressing the implication of Functionality.</p>
 <h4>Plan</h4> <br><img class="img-responsive" src="assets/img/realsprint6_plan.JPG" alt=""> <br>                   
                     
-            <p>In this Sprint, rather than creating a new function, I decided to run a "Cancel order" feature in the Main Menu. In all the functions that the user could be led to through the other menu options, there s always a quit option available which returns them to the main menu. This means this new Cancel feature is easily accessible from anywhere in the program, addressing the implication of Functionality.</p>
+                                            
+<h4>Kanban Board</h4>
+                <img class="img-responsive" src="assets/img/sprint6_kanban.png" alt=""> <br>
+                                
+            <h4>Test</h4>
+            <video class="img-responsive" width="600" controls><source src="assets/videos/cancel_sprint6test.mp4" type="video/mp4"></video><br><hr><br>
+                                
+                                <div class="blockcolour">
+                                    <h4>Code checker - at the end of Sprint 4</h4>
+                                <div class="col-container">
+                                <div class="col">
+                                <img class="img-responsive" src="assets/img/code_checker2.png" alt=""> </div>
+                                <div class="col">
+                                <img class="img-responsive" src="assets/img/code_checker2.5.png" alt="">
+                                </div></div>
+                                </div>
+            <hr>
+                                <br>
             
-            <h5>Test</h5>
-            <video class="img-responsive" width="600" controls><source src="assets/videos/cancel_sprint6test.mp4" type="video/mp4"></video><br>
-<hr>                   
+<h1 id="A">Test with a potential customer situation</h1>
+                                <p>I carried out a user test with Mr Khouri, at the point when my program was developed up to the end of Sprint 6. </p>
+            <h5>The customer order</h5><br>
+            <img class="img-responsive" src="assets/img/mrk_practice_order.jpg" alt=""><br><br>
+            <h5>Video of my program completing the above order:</h5><br>
+            <video class="img-responsive" width="900" controls><source src="assets/videos/reallife_test_endofsprint6.mp4" type="video/mp4"></video><br>
+            <hr>
+            <h5>Things I learnt from this test:</h5>
+                <p>I accidentally selected the add option, because of the customer's langauge saying they want to add one more Australia pizza. I should have selected the update option. In future the add option should lead to the update function, if that pizza type has already got some pizzas in the order.</p>
+            <h5>Improvements to make in future versions:</h5>
+                     
+<hr>  
+        <h1 id="7">Sprint Seven</h1>
+                                <p>A program which asks for and stores customer details, depending on whether their order is for delivery or pickup. Function gets the customer details:<br> <br>1 - request delivery or pickup (also adds delivery charge under certain conditions) <br>2 - basic form to enter Name, Address (validated get_string function to allow more than 1 character and set character limits and check for valid characters (for example no * or !))</p>
+<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>                   
+                    
+
+<hr>
+<hr> 
+                                <div class="blockcolour">
 <h1>Lesson Standups</h1>
             <div class="col-container">
                 <div class="col">
@@ -312,22 +367,19 @@ I also found out I needed to clarify what an index number is, so I added an extr
                 <div class="col">
                 <img class="img-responsive" src="assets/img/standups/25_aug.JPG" alt="">
                 </div></div>
+                                </div>
                 <hr>
                     
-<h4> Relevant Implications Summary</h4>
+<h4 id="R"> Relevant Implications Summary</h4>
  <hr>
             
-   
-                
-                
-                
-            
+
 			
 			</div>
+                   </div>
 			<div class="footer">
 				&copy; Copyright 2020 Paige M
 			</div>
-		</div>
-            
+		
 	</body>
 </html>
