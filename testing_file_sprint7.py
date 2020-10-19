@@ -106,7 +106,7 @@ def total_pizzas_ordered(mo):
     return total_sum
 
 
-def price_of_order(mo):
+def price_of_order(mo, delivery_charge):
     """Return the total price and number of pizzas ordered in a receipt format.
 
     :param mo: None
@@ -124,43 +124,16 @@ def price_of_order(mo):
                                                                       sub_total
                                                                       )
         print(order)
-        total_price = total_price + sub_total
+        total_price = total_price + sub_total + delivery_charge
     dotted()
     order = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
         format("", "", "Total", total_price)
     order_gst = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
         format("", "", "GST", total_price*(3/23))
-    print(order)
-    print(order_gst)
+    order_delivery = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
+        format("", "", "Extra", delivery_charge)
+    print(order_delivery)
     dotted()
-    return None
-
-
-def price_of_order_indexes(mo):
-    """Return the total price and number of pizzas ordered in a receipt format.
-
-    :param mo: None
-    :return: None
-    """
-    print("Here is your order so far:")
-    dotted()
-    total_price = 0
-    # loops through list
-    for i in range(0, len(mo)):
-        # calculates price for each type of pizza
-        sub_total = mo[i][1] * mo[i][2]
-        order = "{: ^5} {: ^15} x {:<10} @ {: ^5.2f}      ${:<15.2f}".\
-            format(i, mo[i][0], mo[i][1], mo[i][2], sub_total)
-        print(order)
-        # calculates total price
-        total_price = total_price + sub_total
-    dotted()
-    order = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
-        format("", "", "Total", total_price)
-    # calculates gst
-    order_gst = "{: ^15}   {:<10}   {: ^5}      ${:<15.2f}". \
-        format("", "", "GST", total_price*(3/23))
-    # prints formatted cost and gst as part of the receipt
     print(order)
     print(order_gst)
     dotted()
@@ -178,7 +151,7 @@ def update(mo):
     # print current order so far
     total_pizzas_ordered(mo)
     # prints total cost and GST
-    price_of_order_indexes(mo)
+    price_of_order(mo)
     # sub menu options
     change_options = [("C", "Change amount"), ("D", "Delete pizza from order"),
                       ("E", "Exit back to main menu")]
@@ -257,6 +230,57 @@ def update(mo):
         dotted()
         return None
 
+    else:
+        return None
+
+
+def customerdetails():
+    """Get customer details
+
+    :param: None
+    :return: None
+    """
+    # submenu asking for pizza pickup or delivery
+    deliverypickup_options = [("P", "Pickup"), ("D", "Delivery")]
+    message = "Please enter the customer name:"
+    message_phone = "Please enter your phone number:"
+    # asks for user to enter their name
+    name = get_validated_string(message, 0, 15)
+    phone = get_validated_string(message_phone, 0, 30)
+    # prints their name and number
+    dotted()
+    print("Order name: {}".format(name))
+    print("Number: {}".format(phone))
+    dotted()
+    for i in range(0, len(deliverypickup_options)):
+        print("{:3} : {}".format(deliverypickup_options[i][0], deliverypickup_options[i][1]))
+    # asks user to choose whether they would like to do pickup or delivery
+    deliverypickup_choice = get_validated_string(""
+                                         "What would you "
+                                         "like to do?"
+                                         "", 0, 1).upper()
+
+    if deliverypickup_choice == "P":
+        dotted()
+        print("Pickup for {} at Karori Branch".format(name))
+        dotted()
+        # returns information about the pickup details
+        return name, phone, deliverypickup_choice
+    elif deliverypickup_choice == "D":
+        message_address = "Please enter 1st address line:"
+        message_suburb = "Please enter 2nd address line:"
+        # asks for user to enter their address
+        address = get_validated_string(message_address, 0, 50)
+        suburb = get_validated_string(message_suburb, 0, 50)
+        dotted()
+        print("Delivery for {} to {}".format(name, address))
+        dotted()
+        dotted()
+        # returns information about the pickup details
+        return name, phone, deliverypickup_choice, address, suburb
+    else:
+        return None
+
 
 def quit_or_menu():
     """Choose to either quit or view menu.
@@ -297,10 +321,11 @@ def quit_or_menu():
         ("V", "View pizza menu"),
         ("A", "Add pizza to your order"),
         ("R", "Review order so far"),
+        ("D", "Confirm customer Details"),
+        ("F", "Finalise order"),
         ("U", "Update"),
         ("C", "Cancel order"),
-        ("Q", "Quit"),
-        ("T", "This is a test")
+        ("Q", "Quit")
     ]
 
     confirm_quit = [
@@ -312,6 +337,9 @@ def quit_or_menu():
         ("Y", "Continue to cancel order"),
         ("N", "Go back to menu page")
     ]
+
+    customerdetails
+    delivery_charge = 0
 
     # starts the ordering process
     start_order = True
@@ -362,7 +390,28 @@ def quit_or_menu():
             # allows the user to review their order so far
             else:
                 total_pizzas_ordered(my_order)
-                price_of_order(my_order)
+                price_of_order(my_order, delivery_charge)
+
+        elif option_choice == "D":
+            customer_details = customerdetails()
+            if customer_details[2] == "D":
+                delivery_charge = 3
+                dotted()
+
+        elif option_choice == "F":
+            if customer_details:
+                print(customer_details[0])
+                print(customer_details[1])
+                if customer_details[2] == "D":
+                    print(customer_details[3])
+                    dotted()
+                price_of_order(my_order, delivery_charge)
+                print("Thank you for coming to our pizza shop!")
+                dotted()
+            else:
+                print("Please enter your customer details first.")
+            dotted()
+            start_order = True
 
         elif option_choice == "U":
             if len(my_order) == 0:
@@ -418,9 +467,6 @@ def quit_or_menu():
             else:
                 print("You have requested an invalid choice.")
                 dotted()
-
-        elif option_choice == "T":
-            price_of_order(my_order)
         else:
             print("You have requested an invalid choice.")
             dotted()
