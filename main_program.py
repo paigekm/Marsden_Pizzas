@@ -140,7 +140,7 @@ def price_of_order(mo, delivery_charge):
     return None
 
 
-def update(mo):
+def update(mo, delivery_charge):
     """Give the user the option to change their order.
 
     Delete a pizza or return to the main menu.
@@ -151,7 +151,7 @@ def update(mo):
     # print current order so far
     total_pizzas_ordered(mo)
     # prints total cost and GST
-    price_of_order(mo)
+    price_of_order(mo, delivery_charge)
     # sub menu options
     change_options = [("C", "Change amount"), ("D", "Delete pizza from order"),
                       ("E", "Exit back to main menu")]
@@ -234,7 +234,7 @@ def update(mo):
         return None
 
 
-def customerdetails():
+def customer_details():
     """Get customer details
 
     :param: None
@@ -320,10 +320,10 @@ def quit_or_menu():
     option_menu = [
         ("V", "View pizza menu"),
         ("A", "Add pizza to your order"),
+        ("U", "Update"),
         ("R", "Review order so far"),
         ("D", "Confirm customer Details"),
-        ("F", "Finalise order"),
-        ("U", "Update"),
+        ("F", "Finish order"),
         ("C", "Cancel order"),
         ("Q", "Quit")
     ]
@@ -338,7 +338,7 @@ def quit_or_menu():
         ("N", "Go back to menu page")
     ]
 
-    customerdetails
+    customerdetails_data = None
     delivery_charge = 0
 
     # starts the ordering process
@@ -393,25 +393,30 @@ def quit_or_menu():
                 price_of_order(my_order, delivery_charge)
 
         elif option_choice == "D":
-            customer_details = customerdetails()
-            if customer_details[2] == "D":
+            customerdetails_data = customer_details()
+            if customerdetails_data[2] == "D":
                 delivery_charge = 3
                 dotted()
 
         elif option_choice == "F":
-            if customer_details:
-                print(customer_details[0])
-                print(customer_details[1])
-                if customer_details[2] == "D":
-                    print(customer_details[3])
+            if customerdetails_data:
+                print(customerdetails_data[0])
+                print(customerdetails_data[1])
+                if customerdetails_data[2] == "D":
+                    print(customerdetails_data[3])
                     dotted()
                 price_of_order(my_order, delivery_charge)
                 print("Thank you for coming to our pizza shop!")
                 dotted()
+                start_order = True
             else:
                 print("Please enter your customer details first.")
-            dotted()
-            start_order = True
+                dotted()
+                for i in range(0, len(option_menu)):
+                    print("{:3} : {}".format(option_menu[i][0], option_menu[i][1]))
+                option_choice = get_validated_string("What would you like "
+                                                     "to do? -> ", 0, 1).upper()
+
 
         elif option_choice == "U":
             if len(my_order) == 0:
@@ -421,7 +426,7 @@ def quit_or_menu():
             else:
                 # calls update function to either
                 # change the number of pizzas or delete one
-                update(my_order)
+                update(my_order, delivery_charge)
 
         elif option_choice == "C":
             # ends the ordering process

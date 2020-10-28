@@ -350,7 +350,33 @@
                                 <p>A program which asks for and stores customer details, depending on whether their order is for delivery or pickup. Function gets the customer details:<br> <br>1 - request delivery or pickup (also adds delivery charge under certain conditions) <br>2 - basic form to enter Name, Address (validated get_string function to allow more than 1 character and set character limits and check for valid characters (for example no * or !))</p>
 <h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>                   
                     
-
+<h5>Video of my program finding an error after adding delivery charge:</h5><br>
+            <video class="img-responsive" width="900" controls><source src="assets/videos/update_error.mp4" type="video/mp4"></video><br>
+            <hr>
+                                <div class="blockcolour">
+                                <h5>Video real user test of program that includes delivery or pickup:</h5><br>
+            <video class="img-responsive" width="900" controls><source src="assets/videos/test_end_of_sprint7.mp4" type="video/mp4"></video><br>
+                                </div>
+                                
+            
+            <h4>Testing</h4>
+                                <h5>Error 1 - Selecting the finalise order option, although you haven't filled out customer details yet.</h5>
+                                <img class="img-responsive" src="assets/img/didnt_fill_in_customer_details.png" alt="">
+                                <h5>Solution:</h5>
+                                <br>
+                                <h5>Error 2 - $3 charge didn't add on to the total cost</h5>
+                                <p>Through testing I discovered that although the delivery fee was printed in the receipt, the total cost wasn't being adapted.</p>
+                                <img class="img-responsive" src="assets/img/printed3_but_didnt_add_to_totalcost.png" alt="">
+                                <br>
+                                <h5>Error found when testing with a real life user - Sophie</h5>
+                                <img class="img-responsive" src="assets/img/sophtest.png" alt="">
+                                <br><br>
+                                <h5>Final program working with customer details function incorporated:</h5>
+                                <img class="img-responsive" src="assets/img/fixed_customerdetsdone.png" alt="">
+                                
+                                
+                                
+            <hr>
 <hr>
 <hr> 
                                 <div class="blockcolour">
@@ -370,7 +396,44 @@
                                 </div>
                 <hr>
                     
-<h4 id="R"> Relevant Implications Summary</h4>
+<h4 id="R"> Relevant Implications Summary</h4><br>
+                                <h5><b>Visibility of System Status</b></h5><br>
+                                <p><b>Describe:</b></p>
+                                <p><b>Address:</b></p>
+                                <ul>
+                                <li></li>
+                                </ul>
+                                <hr>
+                                
+                                <h5><b>Future Proofing</b></h5><br>
+                                <p><b>Describe: </b>Is it easy to update or add new features to the program. Can a different programmer do this? Is the code “easy” to understand? Comments and docstrings are used to describe the purpose of functions and other sections of code so another programmer can be quickly “onboarded”.</p>
+                                <p><b>Address:</b></p><ul>
+                            <li>Built around a function structure as a new feature implies a new function.</li>
+                            <li>Can be “easily” integrated into the main program using functions.</li>
+                            <li></li>Using code checker ensures tab indents, spacings, line lengths to fit with python conventions.<li>
+                            </ul> 
+                                 <hr>
+                                
+                                <h5><b>Functionality</b></h5><br>
+                                <p><b>Describe:</b></p>
+                                <p>A functional program works well. Is it free from bugs? Does it not crash? Does it add up and store values correctly?</p>
+                                <p><b>Address:</b></p>
+                                <ul>
+                            <li>Testing (scenario) found bug before program finished</li>
+                            <li>Regular testing</li>
+                            <li>Testing individual functions</li>
+                                <li>Testing their integration into the main program</li>
+                                <li>Designed and executed more extensive tests (planning “order stories” real life user testing and scenarios)</li>
+                        </ul><hr>
+                                
+                                <h5><b>Usability</b></h5><br>
+                                <p><b>Describe:</b></p>
+                                <p>Can the user recognise, diagnose, recover from errors (error messages). Can the application correct errors and not have to worry the user? Restore a previous state?</p>
+                                <p><b>Address:</b></p>
+                                <hr><ul>
+                                <li>Validations</li>
+                                <li>Back options</li>
+                                </ul>
  <hr>
             
 
