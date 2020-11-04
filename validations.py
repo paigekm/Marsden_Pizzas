@@ -79,8 +79,8 @@ def get_validated_string(message, min, max):
     while True:
         string_entry = input(message)
         if len(string_entry) < min:
-            print("Please ensure your entry has more "
-                  "than {} characters.".format(min))
+            print("Please ensure your entry has at least "
+                  " {} characters.".format(min))
         elif len(string_entry) > max:
             print("Please ensure your entry has no "
                   "more than {} characters.".format(max))
@@ -88,6 +88,83 @@ def get_validated_string(message, min, max):
             return string_entry
 
 
+def get_validated_string_P_or_D(message, min, max):
+    """Get user input.
+
+    And tests that the length of the string is,
+    greater than 1 or less than a maximum.
+
+    Includes error messages for a if not P or D
+
+    :param M: str
+    :return: str
+    """
+    while True:
+        string_entry = input(message)
+        string_entry = string_entry.upper()
+        if len(string_entry) < min:
+            print("You have not entered enough characters. Please enter 1 only.")
+        elif len(string_entry) > max:
+            print("You have entered too many characters. Please enter 1 only.")
+        elif string_entry in ["P", "D"]:
+            return string_entry
+        else:
+            print("Your input is not part of the acceptable list, please enter P or D")
+
+
+def get_validated_string_Y_or_N(message, min, max):
+    """Get user input.
+
+    And tests that the length of the string is,
+    greater than 1 or less than a maximum.
+
+    Includes error messages for a if not P or D
+
+    :param M: str
+    :return: str
+    """
+    while True:
+        string_entry = input(message)
+        string_entry = string_entry.upper()
+        if len(string_entry) < min:
+            print("You have not entered enough characters. Please enter 1 only.")
+        elif len(string_entry) > max:
+            print("You have entered too many characters. Please enter 1 only.")
+        elif string_entry in ["Y", "N"]:
+            return string_entry
+        else:
+            print("Your input is not part of the acceptable list, please enter Y or N")
+
+
+def get_validated_string_phone(message_phone, min, max):
+    """
+        to ensure only a valid string of numbers
+        is returned.
+        tests for min and max character len,
+        3 arguments: string message, min int, max int
+        """
+    while True:
+        string_entry = input(message_phone)
+        string_entry = string_entry.replace(" ", "")
+        if len(string_entry) < min:
+            print("You have not entered enough characters")
+            continue
+        elif len(string_entry) > max:
+            print("You can only enter {} character/s".format(max))
+            continue
+
+        not_valid_phone = False
+        for i in range(0, len(string_entry)):
+            if string_entry[i] not in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-"]:
+                not_valid_phone = True
+
+        if not_valid_phone == True:
+            print("You should not have any letters in your phone number.")
+            continue
+        else:
+            return string_entry
+
+
 if __name__ == "__main__":
-    test_string = get_validated_string("Please enter a fruit:", 2, 40)
+    test_string = get_validated_string_P_or_D("Please enter a p or d", ["P", "D"])
     print(test_string)

@@ -2,7 +2,7 @@
 
 # imported validation functions from another file
 from validations import get_validated_integer, \
-    get_validated_integer_pizzalimits, get_validated_string
+    get_validated_integer_pizzalimits, get_validated_string, get_validated_string_P_or_D
 
 
 def stars():
@@ -85,7 +85,11 @@ def add_to_order(mo, p):
     chosen_pizza = p[pizza_choice_index][1]
     # get the total number of pizzas
     total = total_pizzas_ordered(mo)
-    print("You currently have {} pizzas in your order.".format(total))
+    dotted()
+    # lets the customer know their current status of number of pizzas, if more than 1 pizza in the order
+    if total > 0:
+        print("You currently have a total of {} pizzas in your order.".format(total))
+    dotted()
     # only allows the user to order up to 5 pizzas of one type
     quantity = get_validated_integer_pizzalimits("How many {} "
                                                  "pizzas would you like?".
@@ -96,7 +100,6 @@ def add_to_order(mo, p):
               "You can only order {} more pizzas.".format(50-total))
         # doesn't allow them to add any more pizzas beyond max of 50
         return None
-    dotted()
     # calls the duplication function
     # checks if pizza type entry is duplicated
     duplicated = test_pizza_duplicate(mo, chosen_pizza, quantity)
@@ -172,6 +175,50 @@ def price_of_order(mo, delivery_charge):
     return None
 
 
+def price_of_order_with_indexes(mo, delivery_charge):
+    """Return the total price and number of pizzas ordered in a receipt format.
+
+    :param mo: None
+    :return: None
+    """
+    # shows the start of the review function
+    print("Here is your order:")
+    dotted()
+    # sets the total price to be 0 to begin
+    total_price = 0
+    #
+    for i in range(0, len(mo)):
+        # calculates price for each row
+        sub_total = mo[i][1] * mo[i][2]
+        # prints headings for price of order in a receipt format
+        order = "{}  {: ^15} x {:<10} @ {: ^5.2f}      ${:<15.2f}".format(i, mo[i][0],
+                                                                      mo[i][1],
+                                                                      mo[i][2],
+                                                                      sub_total
+                                                                      )
+        print(order)
+        # calculates the total price
+        # from price of each new row, on top of existing costs and $3 delivery charge if relevant
+        total_price = total_price + sub_total + delivery_charge
+    dotted()
+    # prints price of order in a receipt format
+    order = "{: ^15}   {:<12}   {: ^6}      ${:<15.2f}". \
+        format("", "", "Total", total_price)
+    # creates a column calculating GST by multiplying total cost by 2/3
+    order_gst = "{: ^15}   {:<12}   {: ^6}      ${:<15.2f}". \
+        format("", "", "GST", total_price*(3/23))
+    # prints delivery cost if applicable
+    order_delivery = "{: ^15}   {:<12}   {: ^6}      ${:<15.2f}". \
+        format("", "", "Extra", delivery_charge)
+    print(order_delivery)
+    dotted()
+    print(order)
+    print(order_gst)
+    dotted()
+    # returns to main menu after printing receipt
+    return None
+
+
 def test_pizza_duplicate(mo, chosen_pizza, quantity):
     """
     Scan the customer list for duplicate values
@@ -184,8 +231,8 @@ def test_pizza_duplicate(mo, chosen_pizza, quantity):
             # gives user feedback message that a duplicate has occurred
             # requests confirmation of whether to continue with the Add Pizza action despite the duplicate
             duplicate_update = get_validated_string("You have already ordered {} {} pizzas. "
-                                                    "Would you like to add {} more?: Y/N".format(mo[i][1], mo[i][0], quantity), 0, 1)
-            if duplicate_update == "Y".lower():
+                                                    "Would you like to add {} more?: Y/N".format(mo[i][1], mo[i][0], quantity), 0, 1).upper()
+            if duplicate_update == "Y":
                 # if wants to continue
                 # adds the number of that pizza
                 # (details as collected from Add function and passed to this function)
@@ -217,7 +264,7 @@ def update(mo, delivery_charge):
     # print current order so far
     total_pizzas_ordered(mo)
     # prints total cost and GST
-    price_of_order(mo, delivery_charge)
+    price_of_order_with_indexes(mo, delivery_charge)
     # sub menu options
     change_options = [("C", "Change amount"), ("D", "Delete pizza from order"),
                       ("E", "Exit back to main menu")]
@@ -235,6 +282,7 @@ def update(mo, delivery_charge):
     for i in range(0, len(change_options)):
         print("{:3} : {}".format(change_options[i][0], change_options[i][1]))
     # request option letter
+    dotted()
     change_choice = get_validated_string(""
                                          "What would you "
                                          "like to do?"
@@ -250,7 +298,9 @@ def update(mo, delivery_charge):
         message = "Are you sure you want to change your order to have {} {} " \
                   "pizzas Please enter Y/N:" \
                   "".format(new_amount_pizzas, mo[indextochange_choice][0])
+        dotted()
         yes_or_no_change = get_validated_string(message, 0, 1).upper()
+        dotted()
 
         if yes_or_no_change == "Y":
             # if user does want to update, changes the amount of those pizzas in their order so far
@@ -280,7 +330,7 @@ def update(mo, delivery_charge):
                                                 (mo[indextochange_choice][0]),
                                                 0, 1).upper()
         if yes_or_no_delete == "Y":
-            # user feedback that the pizzas are being deleted
+        # user feedback that the pizzas are being deleted
             print("{} pizzas are being deleted..."
                   "".format(mo[indextochange_choice][0]))
             # remove row from the list
@@ -321,8 +371,8 @@ def customer_details():
     message = "Please enter the customer name:"
     message_phone = "Please enter your phone number:"
     # asks for user to enter their name
-    name = get_validated_string(message, 0, 15)
-    phone = get_validated_string(message_phone, 0, 30)
+    name = get_validated_string(message, 1, 15)
+    phone = get_validated_string(message_phone, 7, 11)
     # prints their name and number
     dotted()
     print("Order name: {}".format(name))
@@ -331,10 +381,11 @@ def customer_details():
     for i in range(0, len(deliverypickup_options)):
         print("{:3} : {}".format(deliverypickup_options[i][0], deliverypickup_options[i][1]))
     # asks user to choose whether they would like to do pickup or delivery
-    deliverypickup_choice = get_validated_string(""
+    dotted()
+    deliverypickup_choice = get_validated_string_P_or_D(""
                                          "What would you "
                                          "like to do?"
-                                         "", 0, 1).upper()
+                                         , ["P", "D"])
 
     if deliverypickup_choice == "P":
         dotted()
@@ -346,8 +397,8 @@ def customer_details():
         message_address = "Please enter 1st address line:"
         message_suburb = "Please enter 2nd address line:"
         # asks for user to enter their address
-        address = get_validated_string(message_address, 0, 50)
-        suburb = get_validated_string(message_suburb, 0, 50)
+        address = get_validated_string(message_address, 1, 25)
+        suburb = get_validated_string(message_suburb, 1, 25)
         dotted()
         print("Delivery for {} to {}".format(name, address))
         dotted()
@@ -385,9 +436,9 @@ def quit_or_menu():
         (price_of_regular, "Italy", "Margharita"),
         (price_of_regular, "UK", "Pepperoni"),
         (price_of_regular, "Germany", "Flammkuchen - "
-                                      "bacon and caramelized onions"),
+                                      "bacon and onion"),
         (price_of_gourmet, "Russia",
-         "Mockba four fish pizza with sardines, tuna, mackerel and salmon"),
+         "Mockba four fish pizza"),
         (price_of_gourmet, "India", "Pickled ginger and paneer"),
         (price_of_gourmet, "Japan", "Eel, squid, mayojaga"),
         (price_of_gourmet, "Brazil", "Green peas"),
@@ -489,34 +540,44 @@ def quit_or_menu():
                 dotted()
 
         elif option_choice == "F":
-            # if data has been entered for customer details can finalise order
-            if customerdetails_data:
-                # prints customer details to ensure they are correct
-                print(customerdetails_data[0])
-                print(customerdetails_data[1])
-                # adds delivery cost to receipt
-                if customerdetails_data[2] == "D":
-                    print(customerdetails_data[3])
+            # asks for confirmation that the user would like to finalise their order
+            yes_or_no_finalise = get_validated_string("Are you sure you want to finalise your order? Y/N: ", 1, 1).upper()
+            if yes_or_no_finalise == "Y":
+                # if data has been entered for customer details can finalise order
+                if customerdetails_data:
+                    # prints customer details to ensure they are correct
+                    print(customerdetails_data[0])
+                    print(customerdetails_data[1])
+                    # adds delivery cost to receipt
+                    if customerdetails_data[2] == "D":
+                        print(customerdetails_data[3])
+                        dotted()
+                    # prints costs in receipt
+                    price_of_order(my_order, delivery_charge)
+                    # ends the order, signifying it has been finalised
+                    print("Your order has been finalised.")
+                    print("Thank you for coming to our pizza shop!")
                     dotted()
-                # prints costs in receipt
-                price_of_order(my_order, delivery_charge)
-                # ends the order, signifying it has been finalised
-                print("Your order has been finalised.")
-                print("Thank you for coming to our pizza shop!")
+                    dotted()
+                    dotted()
+                    # restarts a new completely new order
+                    # ready for the next customer
+                    start_order = True
+                else:
+                    # if data hasn't been entered for customer details yet cannot finalise order
+                    # gives user feedback of this status
+                    print("Please enter your customer details first.")
+                    dotted()
+                    # redirects to the main menu where they can then enter customer details before finalising
+                    customer_details()
+            elif yes_or_no_finalise == "N":
+                print("Your order is not ready to be finalised yet.")
                 dotted()
-                # restarts a new completely new order
-                # ready for the next customer
-                start_order = True
+                continue
             else:
-                # if data hasn't been entered for customer details yet cannot finalise order
-                # gives user feedback of this status
-                print("Please enter your customer details first.")
+                print("Your entry was invalid.")
                 dotted()
-                # redirects to the main menu where they can then enter customer details before finalising
-                for i in range(0, len(option_menu)):
-                    print("{:3} : {}".format(option_menu[i][0], option_menu[i][1]))
-                option_choice = get_validated_string("What would you like "
-                                                     "to do? -> ", 0, 1).upper()
+                continue
 
         elif option_choice == "U":
             # if the order is empty, cannot update anything
@@ -588,4 +649,6 @@ def quit_or_menu():
 
 
 # runs the main menu function and the main part of the program running
-quit_or_menu()
+# only runs if running this file, not if called into another file
+if __name__ == "__main__":
+    quit_or_menu()

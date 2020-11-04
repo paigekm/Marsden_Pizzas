@@ -2,7 +2,8 @@
 
 # imported validation functions from another file
 from validations import get_validated_integer, \
-    get_validated_integer_pizzalimits, get_validated_string
+    get_validated_integer_pizzalimits, get_validated_string, get_validated_string_P_or_D, \
+    get_validated_string_Y_or_N, get_validated_string_phone
 
 
 def stars():
@@ -86,7 +87,9 @@ def add_to_order(mo, p):
     # get the total number of pizzas
     total = total_pizzas_ordered(mo)
     dotted()
-    print("You currently have a total of {} pizzas in your order.".format(total))
+    # lets the customer know their current status of number of pizzas, if more than 1 pizza in the order
+    if total > 0:
+        print("You currently have a total of {} pizzas in your order.".format(total))
     dotted()
     # only allows the user to order up to 5 pizzas of one type
     quantity = get_validated_integer_pizzalimits("How many {} "
@@ -98,7 +101,6 @@ def add_to_order(mo, p):
               "You can only order {} more pizzas.".format(50-total))
         # doesn't allow them to add any more pizzas beyond max of 50
         return None
-    dotted()
     # calls the duplication function
     # checks if pizza type entry is duplicated
     duplicated = test_pizza_duplicate(mo, chosen_pizza, quantity)
@@ -229,7 +231,7 @@ def test_pizza_duplicate(mo, chosen_pizza, quantity):
         if chosen_pizza == mo[i][0]:
             # gives user feedback message that a duplicate has occurred
             # requests confirmation of whether to continue with the Add Pizza action despite the duplicate
-            duplicate_update = get_validated_string("You have already ordered {} {} pizzas. "
+            duplicate_update = get_validated_string_Y_or_N("You have already ordered {} {} pizzas. "
                                                     "Would you like to add {} more?: Y/N".format(mo[i][1], mo[i][0], quantity), 0, 1).upper()
             if duplicate_update == "Y":
                 # if wants to continue
@@ -297,7 +299,8 @@ def update(mo, delivery_charge):
         message = "Are you sure you want to change your order to have {} {} " \
                   "pizzas Please enter Y/N:" \
                   "".format(new_amount_pizzas, mo[indextochange_choice][0])
-        yes_or_no_change = get_validated_string(message, 0, 1).upper()
+        dotted()
+        yes_or_no_change = get_validated_string_Y_or_N(message, 0, 1).upper()
         dotted()
 
         if yes_or_no_change == "Y":
@@ -320,7 +323,7 @@ def update(mo, delivery_charge):
 
     elif change_choice == "D":
         # request confirmation of delete
-        yes_or_no_delete = get_validated_string(("Are you sure you want "
+        yes_or_no_delete = get_validated_string_Y_or_N(("Are you sure you want "
                                                  "to delete all {} pizzas"
                                                  " from the order? "
                                                  "Please enter Y/N:"
@@ -328,7 +331,7 @@ def update(mo, delivery_charge):
                                                 (mo[indextochange_choice][0]),
                                                 0, 1).upper()
         if yes_or_no_delete == "Y":
-            # user feedback that the pizzas are being deleted
+        # user feedback that the pizzas are being deleted
             print("{} pizzas are being deleted..."
                   "".format(mo[indextochange_choice][0]))
             # remove row from the list
@@ -370,7 +373,7 @@ def customer_details():
     message_phone = "Please enter your phone number:"
     # asks for user to enter their name
     name = get_validated_string(message, 1, 15)
-    phone = get_validated_string(message_phone, 7, 11)
+    phone = get_validated_string_phone(message_phone, 7, 11)
     # prints their name and number
     dotted()
     print("Order name: {}".format(name))
@@ -380,10 +383,10 @@ def customer_details():
         print("{:3} : {}".format(deliverypickup_options[i][0], deliverypickup_options[i][1]))
     # asks user to choose whether they would like to do pickup or delivery
     dotted()
-    deliverypickup_choice = get_validated_string(""
+    deliverypickup_choice = get_validated_string_P_or_D(""
                                          "What would you "
                                          "like to do?"
-                                         "", 1, 1).upper()
+                                         , 1, 1)
 
     if deliverypickup_choice == "P":
         dotted()
@@ -538,33 +541,44 @@ def quit_or_menu():
                 dotted()
 
         elif option_choice == "F":
-            # if data has been entered for customer details can finalise order
-            if customerdetails_data:
-                # prints customer details to ensure they are correct
-                print(customerdetails_data[0])
-                print(customerdetails_data[1])
-                # adds delivery cost to receipt
-                if customerdetails_data[2] == "D":
-                    print(customerdetails_data[3])
+            # asks for confirmation that the user would like to finalise their order
+            yes_or_no_finalise = get_validated_string_Y_or_N("Are you sure you want to finalise your order? Y/N: ", 1, 1).upper()
+            if yes_or_no_finalise == "Y":
+                # if data has been entered for customer details can finalise order
+                if customerdetails_data:
+                    # prints customer details to ensure they are correct
+                    print(customerdetails_data[0])
+                    print(customerdetails_data[1])
+                    # adds delivery cost to receipt
+                    if customerdetails_data[2] == "D":
+                        print(customerdetails_data[3])
+                        dotted()
+                    # prints costs in receipt
+                    price_of_order(my_order, delivery_charge)
+                    # ends the order, signifying it has been finalised
+                    print("Your order has been finalised.")
+                    print("Thank you for coming to our pizza shop!")
                     dotted()
-                # prints costs in receipt
-                price_of_order(my_order, delivery_charge)
-                # ends the order, signifying it has been finalised
-                print("Your order has been finalised.")
-                print("Thank you for coming to our pizza shop!")
+                    dotted()
+                    dotted()
+                    # restarts a new completely new order
+                    # ready for the next customer
+                    start_order = True
+                else:
+                    # if data hasn't been entered for customer details yet cannot finalise order
+                    # gives user feedback of this status
+                    print("Please enter your customer details first.")
+                    dotted()
+                    # redirects to the main menu where they can then enter customer details before finalising
+                    customer_details()
+            elif yes_or_no_finalise == "N":
+                print("Your order is not ready to be finalised yet.")
                 dotted()
-                dotted()
-                dotted()
-                # restarts a new completely new order
-                # ready for the next customer
-                start_order = True
+                continue
             else:
-                # if data hasn't been entered for customer details yet cannot finalise order
-                # gives user feedback of this status
-                print("Please enter your customer details first.")
+                print("Your entry was invalid.")
                 dotted()
-                # redirects to the main menu where they can then enter customer details before finalising
-                customer_details()
+                continue
 
         elif option_choice == "U":
             # if the order is empty, cannot update anything
@@ -586,7 +600,7 @@ def quit_or_menu():
                 for i in range(0, len(confirm_cancel)):
                     print("{:3} : {}".format(confirm_cancel[i][0],
                                              confirm_cancel[i][1]))
-                ask_cancel_confirmation = get_validated_string("Are you sure "
+                ask_cancel_confirmation = get_validated_string_Y_or_N("Are you sure "
                                                                "you "
                                                                "want to "
                                                                "cancel "
@@ -610,7 +624,7 @@ def quit_or_menu():
             for i in range(0, len(confirm_quit)):
                 print("{:3} : {}".format(confirm_quit[i][0],
                                          confirm_quit[i][1]))
-            ask_quit_confirmation = get_validated_string(""
+            ask_quit_confirmation = get_validated_string_Y_or_N(""
                                                          "Are you sure you "
                                                          "want to quit?"
                                                          "", 0, 1).upper()
