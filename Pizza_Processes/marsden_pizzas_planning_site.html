@@ -33,9 +33,10 @@
                     <li><a href="#4">Sprint 4</a></li>
                     <li><a href="#5">Sprint 5</a></li>
                     <li><a href="#6">Sprint 6</a></li>
-                    <li><a href="#A">Applied test</a></li>
+                    <li><a href="#A">User test</a></li>
                     <li><a href="#7">Sprint 7</a></li>
                     <li><a href="#8">Sprint 8</a></li>
+                    <li><a href="#9">Sprint 9</a></li>
                     <li><a href="#R">Relevant Implications</a></li>
 				</ul>
 			</div>
@@ -61,7 +62,7 @@
 <h1 id="1">Sprint One</h1>
                 
         <p>A program which offers a basic main menu, with an option to either View the pizza menu, or Quit the program. <br>If the user chooses the Quit option, they are asked for confirmation to either end the program or return to the main menu.</p>
-                <img class="img-responsive" src="assets/img/sprint_1_plan.jpg" alt=""><br>
+                <img class="img-responsive" src="assets/img/sprint_1_plan.psd" alt=""><br>
                 <img class="img-responsive" src="assets/img/sprint1_prices_function_plan.jpg" alt=""><br>
                 <h4>Sprint board</h4>
                 <img class="img-responsive" src="assets/img/sprint1_board.png" alt=""><br>
@@ -338,7 +339,7 @@
             <hr>
                                 <br>
             
-<h1 id="A">Test with a potential customer situation</h1>
+<h1 id="A">User test with a customer situation</h1>
                                 <p>I carried out a user test with Mr Khouri, at the point when my program was developed up to the end of Sprint 6. </p>
             <h5>The customer order</h5><br>
             <img class="img-responsive" src="assets/img/mrk_practice_order.jpg" alt=""><br><br>
@@ -352,7 +353,7 @@
 <hr>  
         <h1 id="7">Sprint Seven</h1>
                                 <p>A program which asks for and stores customer details, depending on whether their order is for delivery or pickup. Function gets the customer details:<br> <br>1 - request delivery or pickup (also adds delivery charge under certain conditions) <br>2 - basic form to enter Name, Address (validated get_string function to allow more than 1 character and set character limits and check for valid characters (for example no * or !))</p>
-<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>                   
+<h4>Plan:</h4> <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>                   
                     
 <h5>Video of my program finding an error after adding delivery charge:</h5><br>
             <video class="img-responsive" width="900" controls><source src="assets/videos/update_error.mp4" type="video/mp4"></video><br>
@@ -430,7 +431,59 @@
                                 <br>
                                 
 <hr>
+                                <h1 id="9">Sprint Nine</h1>
+                                <h5>Aim:</h5>
+                                <p>The purpose of this sprint was to clean up all my functions and ensure the program doesn't crash, no matter what entries you throw at any part of it!</p>
+                                <h5>Test showing Grace finding errors in my program:</h5>
+                                <video class="img-responsive" width="600" controls>
+                                <source src="assets/videos/grace_finding_errors.mp4" type="video/mp4">
+                                </video>
+                                <h5>Redirecting the user straight to fill out Customer Details, during Finalise order:</h5>
+                                <img class="img-responsive" src="assets/img/error_so_redirected_to_customerdetails.png" alt="">
+                                <h5>Function to get validated Y or N (yes or no) entry:</h5>
+                                <h5>Function to get validated phone number:</h5>
+                                <p>Photo showing error as allows letters to be entered in a phone number - why this validation function is important!</p>
+                                <img class="img-responsive" src="assets/img/phone_num_allows_letters.png" alt="">
+                                <p>Testing the phone number validation function with a range of lengths and character types:</p>
+                                <img class="img-responsive" src="assets/img/testing_phone_number_validation.png" alt="">
+                                <h5>Function to get validated suburb:</h5>
+                                <h5>Ensuring Cancel and Finalise functions work properly:</h5>
+                                <p>Video to show that customer details and delivery charge do not refresh back to 0, when select Cancel order or at the end of Finalising the previous order.</p>
+                                <video class="img-responsive" width="600" controls>
+                                <source src="assets/videos/customer_details_arent_cleared_when_cancel.mp4" type="video/mp4">
+                                </video>
+                                <h5>Applying a limit of max 5 and total max 50 pizzas in Duplicate function:</h5>
+                                <h5>When running Finalise option, continually reasked for Customer details even if it already knew them:</h5>
+                                <video class="img-responsive" width="600" controls>
+                                <source src="assets/videos/finalise_alwaysasksforcustomerdetails_error.mp4" type="video/mp4">
+                                </video>
+                                <h5>Reflection:</h5>
+                                <p>In this final sprint cleaning up, I also made a few decisions to make communication with the user better. An example of this is I wrote {} character/s and {} pizza/s in the error messages, as I noticed that often the number of characters or pizzas was 1, so the grammar was off.</p>
+                                
+                                
+                                <div class="blockcolour">
+                                    <h5>Final code checker for style issues</h5>
+                                    <p>I ran my main_program code through WOF code checker and resolved any final style issues. One that I was surprised by, was that a function name cannot contain capitals, eg. get_validated_integer_Y_or_N was invalid!<br> I also ran the validations file's code through the checker and resolved all style issues. <br>Finally, I used the feature in PyCharm, which shows errors and explains why in a side panel, to resolve any other issues.</p>
+                                    <img class="img-responsive" src="assets/img/validation_file_style_issues.png" alt=""><br><br>
+                                    <img class="img-responsive" src="assets/img/code_checker_in_program.png" alt="">
+                                </div>
+                                <br>
+                                <div class="blockcolour">
+                                    <h5>End of Project commit (Git) and Kanban Board (Github) history/current status:</h5><br>
+                                    <img class="img-responsive" src="assets/img/start_git_commits.png" alt="">
+                                    <img class="img-responsive" src="assets/img/end_git_commits.png" alt=""><br><br>
+                                    <img class="img-responsive" src="assets/img/final_screenshot_of_all_project_boards_completed.png" alt="">
+                                    
+                                </div>
+                                
 <hr> 
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 <div class="blockcolour">
 <h1>Lesson Standups</h1>
             <div class="col-container">
@@ -448,47 +501,43 @@
                                 </div>
                 <hr>
                     
-<h4 id="R"> Relevant Implications Summary</h4><br>
-                                <h5><b>Visibility of System Status</b></h5><br>
-                                <p><b>Describe:</b></p>
-                                <p><b>Address:</b></p>
-                                <ul>
-                                <li></li>
-                                </ul>
-                                <hr>
+<h1 id="R"> Relevant Implications Summary</h1><br>
                                 
-                                <h5><b>Future Proofing</b></h5><br>
-                                <p><b>Describe: </b>Is it easy to update or add new features to the program. Can a different programmer do this? Is the code “easy” to understand? Comments and docstrings are used to describe the purpose of functions and other sections of code so another programmer can be quickly “onboarded”.</p>
-                                <p><b>Address:</b></p><ul>
-                            <li>Built around a function structure as a new feature implies a new function.</li>
-                            <li>Can be “easily” integrated into the main program using functions.</li>
-                            <li></li>Using code checker ensures tab indents, spacings, line lengths to fit with python conventions.<li>
-                            </ul> 
+                                <h4><b>Future Proofing</b></h4><br>
+                                <p><b>Describe: </b>This relevant implication considers whether or not it is easy to update and add new features to the program. A well ‘Future Proofed’ program would allow a different programmer to update and add features. For this reason, to ensure Future Proofing the code has to be ‘easy’ for other programmers to understand.</p>
+                                <p><b>Address:</b>
+                                The main way I addressed Future Proofing, was by using docstrings to describe the purpose of all my functions, and using extensive commenting to describe the purpose of other sections of code. This makes it easier for another programmer to be quickly “onboarded” into my project, and understand how the design decisions I made, work.<br>
+                                I also addressed this implication by using code checkers to ensure my code fits with python conventions. This ensures all tab indents, spacings and line lengths fit the conventions that the new programmer is familiar with.<br>
+                                I further addressed Future Proofing, by building my program around a function structure. This means that when a new feature is to be added, this implies a new function. This makes my program easier to navigate and informs a programmer the way to add a new feature.<br>This function based structure of my program, also means that changes and new features can easily be integrated into the main program - as a new function can be tested in a testing file first, then integrated smoothly.
+                                </p>
                                  <hr>
                                 
-                                <h5><b>Functionality</b></h5><br>
-                                <p><b>Describe:</b></p>
-                                <p>A functional program works well. Is it free from bugs? Does it not crash? Does it add up and store values correctly?</p>
-                                <p><b>Address:</b></p>
-                                <ul>
-                            <li>Testing (scenario) found bug before program finished</li>
-                            <li>Regular testing</li>
-                            <li>Testing individual functions</li>
-                                <li>Testing their integration into the main program</li>
-                                <li>Designed and executed more extensive tests (planning “order stories” real life user testing and scenarios)</li>
-                        </ul><hr>
+                                <h4><b>Functionality</b></h4><br>
+                                <p><b>Describe:</b>
+                                A functional program works well and loads quickly. This relevant implication ensures that the program is free from bugs or glitches and does not crash. Functionality is also considered, as a program needs to add up and store values correctly. The program should also be able to work and appear properly on all browsers and devices, and all the links should work correctly.</p>
+                                <p><b>Address:</b> I addressed this implication through regular testing. I tested each function in a testing file for that Sprint, and then tested again after integrating into the main program. This ensured that my program was functional and that found any bugs or potential crashes before the program finished. 
+                                <br>I further addressed Functionality, by designing and executing 2 extensive scenario tests throughout. I planned “order stories” to replicate a real life user situation, for extensive testing of my program’s Functionality.
+                                </p>
                                 
-                                <h5><b>Usability</b></h5><br>
-                                <p><b>Describe:</b></p>
-                                <p>Can the user recognise, diagnose, recover from errors (error messages). Can the application correct errors and not have to worry the user? Restore a previous state?</p>
-                                <p><b>Address:</b></p>
-                                <hr><ul>
-                                <li>Validations</li>
-                                <li>Back options</li>
-                                </ul>
- <hr>
-            
+                                <hr>
+                                
+                                <h4><b>Usability</b></h4><br>
+                                <p><b>Describe:</b>
+                                This implication is about ensuring the program is easy to use. Usability is about helping and ensuring the user can recognise, diagnose and recover from errors. Usability ensures the user can not only avoid errors, but that the program can also correct errors without having to worry the user.
+                                <br>Usability also includes being able to restore a previous state. This implication ensures the program follows usability heuristics, uses recognised conventions and matches the real world.</p>
+                                
+                                <p><b>Address:</b> The main way I addressed Usability was through validations. By creating functions to validate string and integer user entries, I ensured the program was easy to use. The validation functions edit the entry immediately (eg. capitalising it) to prevent bothering the user too much, but if it is still invalid it prints an error message and reasks for entry (preventing the program from crashing). 
+                                <br>I addressed this implication, through confirmation and error messages. Confirmation messages ensure that my program meets the usability heuristic of ‘Visibility of System Status’, as these messages communicate the program status and where it is in the process eg. “4 more pizzas have successfully been added”. I also asked for confirmation several times, before making an action, because this makes the program easy to use, minimises the impact of errors and helps the user recover quickly if they make an entry error.
 
+                                <br><br>I further addressed the usability heuristic ‘Visibility of System Status’ by creating a Review option in the main menu, which allows the user to review their order progress so far. This lets the user make informed decisions while they continue running the program. I also included Back options which helps the user recover from errors, as they can return to their previous place in the program.
+
+                                <br>I addressed Usability by implementing a main menu system. This is a familiar format for the user to understand which makes it easier to understand and use. This also provided a ‘home point’ which they are always returned back to, which makes the experience easier as they know where they are so can orient themselves in the program. The concept of a ‘Home page’ is a recognised convention and matches the real world idea of a ‘homebase’. 
+
+                                <br>Finally, I addressed this implication by uploading all files to and using GitHub to manage my files. GitHub allows the programmer to restore a previous state of their program during the design process.
+                                </p>
+                                <hr>
+            
+                </ul>
 			
 			</div>
                    </div>

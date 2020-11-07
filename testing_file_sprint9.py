@@ -563,6 +563,10 @@ def quit_or_menu():
                     dotted()
                     # restarts a new completely new order
                     # ready for the next customer
+                    # empties customer details data
+                    # sets delivery charge back to 0
+                    delivery_charge = 0
+                    customerdetails_data = []
                     start_order = True
                 else:
                     # if data hasn't been entered for customer details yet cannot finalise order
@@ -610,6 +614,10 @@ def quit_or_menu():
                 dotted()
                 if ask_cancel_confirmation == "Y":
                     # starts a brand new order as has cancelled previous order successfully
+                    # starts customer details afresh
+                    # sets delivery charge back to 0
+                    delivery_charge = 0
+                    customerdetails_data = []
                     start_order = True
                 elif ask_cancel_confirmation == "N":
                     # continues with current order (retains all information) and returns to main menu
