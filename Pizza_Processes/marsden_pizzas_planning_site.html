@@ -106,7 +106,7 @@
                     <source src="assets/videos/index_out_of_range.mp4" type="video/mp4">
                     </video><br>
                     <br><h5>Solution to error:</h5>
-                    <p>I will address this error in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.<br>From this error, I learnt that the current version of my program is pretty inflexible, as I used literal values. In future versions, I will use derived values eg. len(list), to avoid out of range errors as literal values won't work if the order list changes in length. The use of derived values or constants, is also more efficient, as the value can be changed in one place rather than having to make changes throughout the code (for example in future Sprints when I implemented a limit of max 5 pizzas of each type, as when it's not a literal value, this number of 5max can easily be changed if the restaurant wanted).</p><br></li>
+                    <p>I will address this error in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.<br>From this error, I learnt that the current version of my program is pretty inflexible, as I used literal values. In future versions, I will use derived values eg. len(list), to avoid out of range errors as literal values won't work if the order list changes in length. The use of derived values or constants, is also more efficient, as the value can be changed in one place rather than having to make changes throughout the code (for example in future Sprints when I implemented a limit of max 5 pizzas of each type, as when it's not a literal value, this number of 5max can easily be changed if the pizza shop/company wanted).</p><br></li>
                 
                     <li><h5>Using the pizza's index number (rather than pizza name) when printing the receipt and user messages</h5><br>
                         <img class="img-responsive" src="assets/img/number_not_name.png" alt="">  <br>
@@ -257,7 +257,7 @@
                                 <img class="img-responsive" src="assets/img/codecheck_32errors.png" alt=""> </div>
                                 <div class="col">
                                 <img class="img-responsive" src="assets/img/free_from_style_issues.png" alt="">
-                                </div></div><hr>
+                                </div></div><br>
 
                 <h4>Git commit and git history at the end of Sprint 4</h4>
                                     <div class="col-container">
@@ -274,29 +274,31 @@
 
         
 <h1 id="5">Sprint Five</h1>
-                <p>My Sprint 5 is about creating an update function. This new update option in the menu allows the user to review their current order status, to remove   currently ordered pizzas or to change the number of pizzas ordered. </p>
-<h4>Purpose of Sprint 5</h4>
-        <img class="img-responsive" src="assets/img/purpose_version5.JPG" alt=""> <br>
-                
-
+                <p>Sprint 5 is about creating a function to Update the order (add, subtract and delete pizzas). <br>This new update option in the menu, allows the user to review their current order status, then is offered the choice to edit the amount of any pizza type in their order, to delete a whole type, or return to the main menu. </p>
+            
                     
-<h4>Two plans for different ways of designing the Update function:</h4>
+                <h4>Two plans: <b>Where</b> to implement the Update function:</h4>
+                
 <div class="col-container">
                 <div class="col">
                 <img class="img-responsive" src="assets/img/update_plan1.JPG" alt=""> </div>
                 <div class="col">
                 <img class="img-responsive" src="assets/img/update_plan2.JPG" alt="">
                 </div></div> 
-                          <br>      
+                          <br>     
+                <p>I chose the 2nd option because: <br>1) I think it is more logical to incorporate this feature as it's own menu option, so it is always visible to the user. If it was only accessible through the Review function, the user may not know their order is updatable when in the main menu.<br> 2) I also decided to merge the Add and Subtract options, to a Change option, so I can ask for a new amount rather than append what is already in the list.</p>
+                
+                <br><h4>Two plans: <b>How</b> to implement the Update function:</h4><br>
+                <img class="img-responsive" src="assets/img/5iterative.jpg" alt=""><br><br>
                                 
 <h4>Kanban Board</h4>
-                <img class="img-responsive" src="assets/img/sprint5_kanban.png" alt=""> <br>
+                <img class="img-responsive" src="assets/img/5kanban.png" alt=""> <br><br>
                                 
                 
 
                 
-<h4>Testing</h4>
-                <p>Through testing I realised that my get validated integer function, which limited the user to only ordering 5 pizzas of one type maximum, wasn't working in this update function.</p><br>
+<h4>Testing:</h4>
+                <p>Through testing I realised that my get_validated_integer function, which limited the user to only ordering 5 pizzas of one type maximum, wasn't working in this update function. I had to ensure I was calling the get_validated_integer_pizzalimits function which validated for max number of pizzas instead.</p><br>
                 <img class="img-responsive" src="assets/img/not_validated.png" alt=""><br>
                 <div class="col-container">
                 <div class="col">
@@ -306,27 +308,37 @@
                 <p>Solution as the correct update is taking place and is shown in the receipt </p>
                 <img class="img-responsive" src="assets/img/update_fixed.png" alt="">
                 </div></div> 
-                
-                <p>Testing the menu option to delete a pizza type:</p>
-                <img class="img-responsive" src="assets/img/test_update_function_deletingapizza.png" alt=""><br>
-        
+                <p>This error occured because I am working with a multidimensional list. I learnt that appending the wrong column or row can have a massive effect on what happens to the order, and in this case, was not at all reflective of what the user had asked to change.</p>
+     
    <br><br>
-  <h4>Run through of this Sprint/the Update function working</h4>
+  <h4>Evidence of the Update function working:</h4>
+                <div class="col-container">
+                    <div class="col">
                 <video class="img-responsive" width="600"  controls>
                     <source src="assets/videos/update_function_test.mp4" type="video/mp4">
-                </video><br>         
+                        </video></div>
+                    <div class="col">
+                        <img class="img-responsive" src="assets/img/test_update_function_deletingapizza.png" alt="">
+                    </div>
+                </div>
+                
+                <h4>Reflection:</h4>
+                <p>Through testing, I realised that in order for the user to choose an index number to Update, as is requested, I can't call the usual function which prints the order so far. Instead I had to create a new function to print the order with index numbers this time too. I decided not to edit the orginal print order function, because index numbers do not normally feature on a receipt and this function is called in other places too.
+                <br> Now that all the features of my program for the user to make their order, are complete, my next step is to allow them to Cancel their order and start a new one.</p>
                     
 <hr>
 <h1 id="6">Sprint Six</h1>
-                                <p>In this Sprint, rather than creating a new function, I decided to run a "Cancel order" feature in the Main Menu. In all the functions that the user could be led to through the other menu options, there s always a quit option available which returns them to the main menu. This means this new Cancel feature is easily accessible from anywhere in the program, addressing the implication of Functionality.</p>
-<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/realsprint6_plan.JPG" alt=""> <br>                   
+                                <p>In this Sprint, rather than creating a new function, I decided to run a "Cancel order" feature in the Main Menu. <br>In all the functions that the user could be led to through the other menu options, there is always an Exit option available which returns them to the main menu. This means this new Cancel feature is easily accessible from anywhere in the program, for example if the customer ordering hung up or decided to stop the order at any time, addressing the implication of Usability.</p>
+<h4>Plan</h4> <br><img class="img-responsive" src="assets/img/realsprint6_plan.JPG" alt=""> <br>  
+                <br><img class="img-responsive" src="assets/img/cancel_iteration.jpg" alt=""> <br> <br>
+                
                     
                                             
 <h4>Kanban Board</h4>
                 <img class="img-responsive" src="assets/img/sprint6_kanban.png" alt=""> <br>
                                 
-            <h4>Run through of Cancel functioning correctly:</h4>
-            <video class="img-responsive" width="600" controls><source src="assets/videos/cancel_sprint6test.mp4" type="video/mp4"></video><br><hr><br>
+            <h4>Test (showing Cancel feature working):</h4><br>
+            <video class="img-responsive" width="600" controls><source src="assets/videos/cancel_sprint6test.mp4" type="video/mp4"></video><br><br>
                                 
                                 <div class="blockcolour">
                                     <h4>Code checker at the end of Sprint 4 (before and after)</h4>
@@ -336,7 +348,11 @@
                                 <div class="col">
                                 <img class="img-responsive" src="assets/img/code_checker2.5.png" alt="">
                                 </div></div>
-                                </div>
+                                </div><br>
+                
+                <h4>Reflection:</h4>
+                <p>In this Sprint, I decided to incorporate the Cancel feature in the Main menu, rather than creating a new function for it. <br>Through testing this feature, I realised the importance of communication with the user with confirmation messages. This is especially important for the Cancel feature, so that the user is visually aware that a new order has started and the previous order has been cleared. <br> I added a potential development in the Project Backlog too; a cancel feature that asks the user whether they would like to store and reuse the customer details after they cancel the order. I think if I got a chance to develop this further in the future, this would be really beneficial because in a real situation, the same customer could stay on the phone but request to start their order over again.<br>My next steps are to ask for the customer details information with a new function. </p>
+                
             <hr>
                                 <br>
             
@@ -347,125 +363,141 @@
             <h5>Video of my program completing the above order:</h5><br>
             <video class="img-responsive" width="900" controls><source src="assets/videos/reallife_test_endofsprint6.mp4" type="video/mp4"></video><br>
             <hr>
-            <h5>Things I learnt from this test:</h5>
-                <p>I accidentally selected the add option, because of the customer's langauge saying they want to add one more Australia pizza. I should have selected the update option. In future the add option should lead to the update function, if that pizza type has already got some pizzas in the order.</p>
+            <h5>What I learnt from this test:</h5>
+                <p>I accidentally selected the Add option, because of the customer's langauge/request saying they want to add one more Australia pizza. I should have selected the Update option.</p>
             <h5>Improvements to make in future versions:</h5>
+                <p>This error of selecting Add when that pizza type was already in the order, prompted me to look into the validation issue of duplicated values. In future sprints, I plan to create a duplicate function, so that I could continue 'Adding' the Australia pizza despite it already being in the order.</p>
                      
 <hr>  
         <h1 id="7">Sprint Seven</h1>
-                                <p>A program which asks for and stores customer details, depending on whether their order is for delivery or pickup. Function gets the customer details:<br> <br>1 - request delivery or pickup (also adds delivery charge under certain conditions) <br>2 - basic form to enter Name, Address (validated get_string function to allow more than 1 character and set character limits and check for valid characters (for example no * or !))</p>
+                                <p>A program which has a option to Finalise order. Program also asks for, stores and prints customer details - the amount of requested details depends on whether their order is for delivery or pickup. <br>User entry 1 - request delivery or pickup (also adds delivery charge under certain conditions) <br>User entry 2 - basic form requests Name and Phone number. Address is only requested for a delivery.</p>
 <h4>Plan:</h4>
-                                <br><img class="img-responsive" src="assets/img/IMG_1271.jpg" alt=""> <br> 
-                                <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>                   
+                <br><img class="img-responsive" src="assets/img/sprint7_plan.jpg" alt=""> <br>   
+                                <br><img class="img-responsive" src="assets/img/7plan.jpg" alt=""> <br> <br>
+                                                
                     
-<h5>Video of my program finding an error after adding delivery charge:</h5><br>
+<h5>User test: program finding an error after adding delivery charge:</h5><br>
             <video class="img-responsive" width="900" controls><source src="assets/videos/update_error.mp4" type="video/mp4"></video><br>
-            <hr>
-                                <br>
-                                
-            
-            <h4>Testing</h4>
-                                <h5>Error 1 - Selecting the finalise order option, although you haven't filled out customer details yet.</h5>
-                                <img class="img-responsive" src="assets/img/didnt_fill_in_customer_details.png" alt="">
-                                <h5>Solution:</h5>
-                                <br>
-                                <h5>Error 2 - $3 charge didn't add on to the total cost</h5>
-                                <p>Through testing I discovered that although the delivery fee was printed in the receipt, the total cost wasn't being adapted.</p>
-                                <img class="img-responsive" src="assets/img/printed3_but_didnt_add_to_totalcost.png" alt="">
-                                <br>
-                                <h5>Error found when testing with a real life user - Sophie</h5>
+                
+                                <h5>User test 2: program finding an error:</h5>
                                 <img class="img-responsive" src="assets/img/sophtest.png" alt="">
                                 <br><br>
-                                <h5>Final program working with customer details function incorporated:</h5>
+
+            <h4>Testing:</h4>
+                                <p>During a test, I attempt to select the finalise order option, although I hadn't filled out customer details yet:<p><br>
+                                <img class="img-responsive" src="assets/img/didnt_fill_in_customer_details.png" alt="">
+                                <p> I addressed this error, by creating a conditional statement for if the list was empty.<br><img class="img-responsive" src="assets/img/7finaliseifempty.png" alt=""><p>
+                                <br>
+                    <br>
+                                <p>Through testing I also discovered that although the $3 delivery fee was printed in the receipt, the total cost wasn't being adapted ($3 wasn't being added on).<br>I solved this issue by ensuring delivery_charge value was being added onto total_cost. I also checked (by printing delivery_charge during testing) that the delivery_charge value had been changed, because delivery_charge is initially set to = 0, for when the user's order is Pickup, and is later set to = 3.</p>
+                                <img class="img-responsive" src="assets/img/printed3_but_didnt_add_to_totalcost.png" alt="">
+                                <br><br>
+                                <p>Successful test showing customer details function incorporated: <br>An accurate receipt is printed; the customer details are printed first, and then as user choose Delivery, the delivery charge is printed and added onto the total.<p>
                                 <img class="img-responsive" src="assets/img/fixed_customerdetsdone.png" alt=""><br>
-                                <div class="blockcolour">
-                                <h5 id ="b">Video of real user test of working program (that includes delivery or pickup):</h5><br>
+                            
+                                <h5 id ="b">User test of working program (with working Customer Details and Finalise features):</h5><br>
             <video class="img-responsive" width="900" controls><source src="assets/videos/test_end_of_sprint7.mp4" type="video/mp4"></video><br>
-                                </div><br>
+                                <br>
                                 
                                 
                                 
-            <hr>
+            <h4>Reflection:</h4>
+                <p>This sprint included a new Finalise feature in the main menu. This does the same as the cancel option, restarting the order, so was relatively easy to incorporate. Confirmation was once again important for good communication with the user, (as the first User test video above shows) because once you have Finalised an order, beyond printing the final receipt, there is no way to further edit the order as the order is not saved. <br>This sprint also involved entry of Customer Details. The testing process led me to realise, I needed to validate the user entries for Name, Phone number, Address and selection of Pickup or Delivery. I noticed this through testing because there were program crashes, and it is also really important to ensure Customer Details are entered correctly, or else the company will not have accurate contact details for the customer. Validating these user inputs is a next step addressed in Sprint 9.</p>
                                 
                                 <hr>  
         <h1 id="8">Sprint Eight</h1>
-                                 <p>A sprint to validate the user's entry; so that they can't order a new Russia pizza, if they have already ordered some Russia pizzas, but instead adds onto the existing number of those pizzas in the order.</p>
+                                 <p>A sprint to validate the user's entry; so that they can't order a new Russia pizza if they have already ordered some Russia pizzas. Feature instead adds onto the existing number of those pizzas in the order through a new 'Duplicate' function.</p>
                                 <h5>Plan:</h5>
                                 <img class="img-responsive" src="assets/img/sprint8plan.jpg" alt=""><br>
                                 
                                 <h5>Iterative decision:</h5>
-                <p>This decision is whether I validate the add_to_order function's pizza entry to print a message saying "you can't do this" and to "return to the main menu and select Update instead", to redirect them to the Update option, or to create a new function make a sum of all pizzas of one type, regardless of what stage of the order they were added during.</p>
-                                <h6>Plan showing two options for the duplicate function.</h6>
+                <p>This decision is whether I validate the add_to_order function's entry when their new pizza is going to cause a Duplicate pizza type, to <br> 1) print a message saying "you can't do this" and to "return to the main menu and select Update instead" <br> 2) to redirect them to the Update option <br>3) to create a new function making a sum of all pizzas of one type, regardless of what stage of the order they were added during.</p><br>
+                <p>I chose the 3rd option, so I will run the Duplicate function using the data collected in Add_to_order. This is a plan showing what will be returned in each case; if a duplicate has occurred and wants to be added, has occured and doesn't want to be added, or no duplicate has occurred at all.</p>
+                 <img class="img-responsive" src="assets/img/returns_add_to_order.jpg" alt=""><br>
+                
+                                <h5>Plan two options for the Duplicate function.</h5><br>
                                 <img class="img-responsive" src="assets/img/iterativedecisionsprint8plan.jpg" alt=""><br>
-                                <img class="img-responsive" src="assets/img/returns_add_to_order.jpg" alt=""><br>
                                 <p>I carried out both of these options as seen in the videos below.</p>
                                     <div class="col-container">
                                     <div class="col">
-                                        <h5>If duplicated asks user to enter the total they want for that pizza type</h5>
+                                        <h5>If duplicated, asks user to enter the new total they want for that pizza type</h5>
                                      <video class="img-responsive" width="900" controls><source src="assets/videos/sprint8_askstotalamount.mp4" type="video/mp4"></video>
-                                    </div></div>
-                                <div class="col-container">
+                                    </div>
                                     <div class="col">
-                                        <h5>If duplicated uses information collected from the Add new pizza function, to add these new pizza onto what is already ordered</h5>
+                                        <h5>If duplicated, uses information collected from the Add_to_order function, to add these new pizza onto what is already ordered</h5>
                                         <video class="img-responsive" width="900" controls><source src="assets/videos/sprint8_addsontooriginal.mp4" type="video/mp4"></video>
                                     </div></div><br>
-                                <h5>Working duplicate pizza function:</h5>
-                                <img class="img-responsive" src="assets/img/sprint8_working.png" alt=""><br>
-                                <hr>
-                                
-                                <h5>Errors found during testing:</h5>
-                                <h6>Changes not reflected in receipt</h6>
+<br>
+                                <h5>Testing:</h5>
+                                <p>Request for order to not be updated after Duplicate, is not reflected in the receipt:<p>
                                 <img class="img-responsive" src="assets/img/not_reflected_inreceipt.png" alt=""><br>
-                                <h6>Only recognises duplicate (only runs Duplicate function), if the first pizza ordered is the duplicated one</h6>
+                                <p>Only recognises duplicate (and runs function), if the first pizza ordered is the duplicated one<p>
                                 <img class="img-responsive" src="assets/img/error_doesntrunduplicate_unless1stentry.png" alt=""><br>
-                                <h6>Solution: Is now case sensitive, so it always notices the duplicate</h6>
+                                <p>Solution:<br>This error was caused because user entry for if they would like to add these pizzas on despite Duplicate (Y or N entry), was not validated. This user entry is now case sensitive, so the program always notices the duplicate and will run the function accordingly, everytime (as seen below).<p>
                                 <img class="img-responsive" src="assets/img/is_now_case_sensitive.jpg" alt=""><br>
                                 
-                                <br>
-                                <h4>Validated entries for Customer Details Plan:</h4>
-                                <img class="img-responsive" src="assets/img/validations_sprint8.jpg" alt=""><br>
+                            
                                 
                                 
                                 <div class="blockcolour">
-                                    <h5>Cassie - User test at the end of Sprint 8</h5>
+                                    <div class="col-container">
+                                        <div class="col">
+                                     <h5>Working Duplicate function:</h5>
+                                            <img class="img-responsive" src="assets/img/sprint8_working.png" alt=""></div>
+                                    <div class="col"><h5>Cassie - User test at the end of Sprint 8</h5>
                                     <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/cassie_user_test.mp4" type="video/mp4">
                                 </video>
+                                        </div>
+                                </div>
                                 </div>
                                 <br>
+                <h4>Reflection:</h4>
+                <p>I learnt the importance of validating all user entries through testing this version of the program. When it crashed because of a capitalisation issue in the user's entry, I realised that, in order to not forget validation again, I should create a get_validated_string function specifically for Y_or_N, as it comes up so often. I created this new validation function in the next Sprint. <br> Good communication with the user, was also a takeaway from this Sprint, as the confirmation messages I printed when a duplicate had occurred, were specific and flexible. This meant that the user was informed of the current amount of that pizza type in the order, and the amount they had previously requested to add, when asked for confirmation to continue.<br>Finally, in this Duplicate sprint I didn't manage to incorporate the max limit of 5 pizzas of each type and 50 max in total. In future versions, I would ensure these boundaries were set when adding pizzas through the Duplicate function too.</p>
                                 
 <hr>
                                 <h1 id="9">Sprint Nine</h1>
-                                <h5>Aim:</h5>
-                                <p>The purpose of this sprint was to clean up all my functions and ensure the program doesn't crash, no matter what entries you throw at any part of it! This was important, espcecially carrying out testing with real life users ("simulation tests"), to test the program's functionality against circumstances that a real life phone operator could come across.</p>
-                                <h5>Test showing Grace finding errors in my program:</h5>
+                            
+                                <p>The purpose of this sprint was to clean up all of my functions and ensure the program doesn't crash, no matter what entries you throw at any part of it! <br>This was important, alongside carrying out simulation testing with real life users, to test the program's functionality against circumstances that a real life phone operator could come across.</p>
+                <h4>Kanban Board:</h4>
+                <img class="img-responsive" src="assets/img/9kanban.png" alt=""><br><br>
+                <h4>Plan for Validating user input from Customer details function:</h4>
+            
+                                <img class="img-responsive" src="assets/img/validations_sprint8.jpg" alt=""><br>
+                <img class="img-responsive" src="assets/img/9validations.jpg" alt=""><br><br>
+                                <h4>Testing:</h4>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/grace_finding_errors.mp4" type="video/mp4">
-                                </video>
+                                </video><br>
+                <p>This test is just one example of the program crashing, because user input wasn't validated (in this case Y_or_N entry had no else condition, for if the entry wasn't a string.) This is solved through the validation functions I created in this Sprint.</p><br>
                                 <h5>Redirecting the user straight to fill out Customer Details, during Finalise order:</h5>
-                                <img class="img-responsive" src="assets/img/error_so_redirected_to_customerdetails.png" alt="">
-                                <h5>Function to get validated Y or N (yes or no) entry:</h5>
+                                <img class="img-responsive" src="assets/img/error_so_redirected_to_customerdetails.png" alt=""><br>
+                <p>I made this decision to redirect the user to fill out their customer details, if they tried to Finalise their order but hadn't already entered their details. This is crucial or else a real life order could not be finished. Although the program didn't crash due to this error, it was still important to resolve so the user understands why they were returned to the Main Menu. Redirecting them right to the Customer Details function where they need to take the next step, is a really good example of Usability; making life the easiest possible for the user.</p><br>
+
                                 <h5>Function to get validated phone number:</h5>
                                 <p>Photo showing error as allows letters to be entered in a phone number - why this validation function is important!</p>
-                                <img class="img-responsive" src="assets/img/phone_num_allows_letters.png" alt="">
+                                <img class="img-responsive" src="assets/img/phone_num_allows_letters.png" alt=""><br>
                                 <p>Testing the phone number validation function with a range of lengths and character types:</p>
                                 <img class="img-responsive" src="assets/img/testing_phone_number_validation.png" alt="">
-                                <h5>Function to get validated suburb:</h5>
+                        
+                <br>
+                                
                                 <h5>Ensuring Cancel and Finalise functions work properly:</h5>
-                                <p>Video to show that customer details and delivery charge do not refresh back to 0, when select Cancel order or at the end of Finalising the previous order.</p>
+                                <p>Video to show that customer details and delivery charge do not refresh back to 0, when user tries to Cancel or Finalise their order. <br>This can be seen in the video, because although in this order, I didn't enter Customer Details, the program just used the details from the previous order. This is also visible as the delivery charge of $3 is displayed in the receipt, even though this order's user was never asked.<br>I addressed this by setting customer_details_data = 0 and delivery charge = 0  after Cancel or Finalise has taken place.</p>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/customer_details_arent_cleared_when_cancel.mp4" type="video/mp4">
-                                </video>
-                                <h5>Applying a limit of max 5 and total max 50 pizzas in Duplicate function:</h5>
-                                <h5>When running Finalise option, continually reasked for Customer details even if it already knew them:</h5>
+                                </video><br><br>
+                                <h5>Video showing error: When running Finalise option, continually reasked for Customer details even if it already knew them:</h5>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/finalise_alwaysasksforcustomerdetails_error.mp4" type="video/mp4">
-                                </video>
+                                </video><br>
+                <p>In order to address this, I had to reconsider where I placed customer_details_data = 0.</p><br>
                                 <h5>Reflection:</h5>
-                                <p>In this final sprint cleaning up, I also made a few decisions to make communication with the user better. An example of this is I wrote {} character/s and {} pizza/s in the error messages, as I noticed that often the number of characters or pizzas was 1, so the grammar was off.</p>
+                                <p>In this final sprint cleaning up, I also made a few decisions to make communication with the user better. An example of this is I wrote {} character/s and {} pizza/s in the error messages, as I noticed that often the number of characters or pizzas was 1, so the grammar was off.<br>This sprint taught me the importance of validating user entries (for Functionality and to avoid program crashes). </p>
                                 
                                 
                                 <div class="blockcolour">
+                                    
                                     <h5>Final code checker for style issues</h5>
                                     <p>I ran my main_program code through WOF code checker and resolved any final style issues. One that I was surprised by, was that a function name cannot contain capitals, eg. get_validated_integer_Y_or_N was invalid!<br> I also ran the validations file's code through the checker and resolved all style issues. <br>Finally, I used the feature in PyCharm, which shows errors and explains why in a side panel, to resolve any other issues.</p>
                                     <img class="img-responsive" src="assets/img/validation_file_style_issues.png" alt=""><br><br>
@@ -473,36 +505,40 @@
                                 </div>
                                 <br>
                                 <div class="blockcolour"> 
+                                      <p>When developing this program, I used Agile practices. I developed the program, incrementally using iterations, as each new feature required a new function and a new testing file. I also used Agile as we used 'Scrum' and held StandUps at the start of each lesson working on the program.<br>
+                                    As seen above with Git commit history and Kanban boards, I also used Git (for version control) and Github (remote repository). This enabled me to restore any previous iterations of the program if I wanted. Anytime I wanted to add a new feature, I used a new Kanban Sprint Board on GitHub to plan, and then created a new testing file on Git (to integrate into my main program). Regularly I carried out Git Commits, to ensure the remote repository Github, held the most recent version of my planning site and program.
+                                    </p> <hr>
                                     <br><br><h5>End of Project commit (Git; evidence of versions) and Kanban Board (Github) history/current status:</h5><br>
                                     <img class="img-responsive" src="assets/img/start_git_commits.png" alt="">
-                                    <img class="img-responsive" src="assets/img/end_git_commits.png" alt="">
+                                    <img class="img-responsive" src="assets/img/end_git_commits.png" alt=""><br>
                                     <img class="img-responsive" src="assets/img/git_commits_final.png" alt="">
                                     <br><br>
-                                    <img class="img-responsive" src="assets/img/final_screenshot_of_all_project_boards_completed.png" alt="">
+                                    <img class="img-responsive" src="assets/img/allgitboards.png" alt="">
                                     
                                 </div>
                                 
                                 <br><br>
-                                <h1 id="c">Final testing and user test of my completed program:</h1>
-                                <h5>I carried out extensive testing, to ensure there are no crashes and all my validations are working.</h5><br>
-                                <h5>Test the whole program for entry boundaries:</h5>
+                                <h1>Final testing of my completed program:</h1>
+                                <p>I carried out extensive testing, to ensure there are no crashes and all my validations are working.<p><br>
+                                <h5>Test the whole program for entry boundaries:</h5><br>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/test_boundaries.mp4" type="video/mp4">
                                 </video><br>
                                 <p>I tested boundaries for example for the user's entry of their phone number. 1-15 characters are boundary cases for a phone number, so I tested that the program works when values within this range are entered. Along with testing for expected cases (eg. 8 characters), I also tested unexpected cases (in this case 0 or 20). <br>When designing and testing the boundaries for index numbers, I had to be careful because index numbers are assigned to different pizza types when in main menu vs order list, and so my boundaries (min and max values) needed to be flexible.</p>
                                 <br><br>
-                                <h5>Test the whole program for entries of the wrong character type eg. +, o, -, letters when numbers etc.</h5>
+                                <h5>Test the whole program for entries of the wrong character type eg. +, o, -, letters when numbers etc.</h5><br>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/test_wrongchartype.mp4" type="video/mp4">
                                 </video><br>
                                 <p>Error as mentioned in above video, the validation feedback for phone number mentions character length before character type. I think it makes more logical sense to check the entry is only numbers and dashes, before worrying about entry length. I also had to adapt the length of the phone number from max 11 characters to 15, because I allow dashes in the entry, and up to 3 or 4 dashes are normally added to each phone number. So I changed this and now the error messages for phone number entry appear like this:</p>
                                 <img class="img-responsive" src="assets/img/phone_num_error_msg_rearranged.png" alt="">
                                 <br><br>
-                                <h5>Test the whole program for entries of nothing or with spaces:</h5>
+                                <h5>Test the whole program for entries of nothing or with spaces:</h5><br>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/test_enterandspaces.mp4" type="video/mp4">
-                                </video><br><br><br>
-                                <h5>Final User Test with my Dad (shows the final program functioning correctly in Idle):</h5>
+                                </video><br>
+                <p>In my validation functions, I set the minimum character legnth to be 1, so that an error message is printed and the user is reasked for input if they enter the spacebar. In my validations I also removed all spaces, before returning the values, so spaces do not interrupt the program from running.</p><br><br><hr>
+                                <h5 id="c">Final User Test with my Dad (shows the final program functioning correctly in Idle):</h5><br>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/dad_final_test.mp4" type="video/mp4">
                                 </video><br><br>
@@ -511,10 +547,7 @@
 <hr> 
                                 
                                 <div class="blockcolour"><br>
-                                    
-                                    <p>When developing this program, I used Agile practices. I developed the program, incrementally using iterations, as each new feature required a new function and a new testing file. I also used Agile as we used 'Scrum' and held StandUps at the start of each lesson working on the program.<br>
-                                    As seen above with Git commit history and Kanban boards, I also used Git (for version control) and Github (remote repository). This enabled me to restore any previous iterations of the program if I wanted. Anytime I wanted to add a new feature, I used a new Kanban Sprint Board on GitHub to plan, and then created a new testing file on Git (to integrate into my main program). Regularly I carried out Git Commits, to ensure the remote repository Github, held the most recent version of my planning site and program.
-                                    </p><br><br> <hr>
+                                
                                     
 <h1>Lesson Standups</h1>
             <div class="col-container">
@@ -529,7 +562,7 @@
                 <div class="col">
                 <img class="img-responsive" src="assets/img/standups/25_aug.JPG" alt="">
                 </div></div>
-                                </div>
+                                </div><br><p> Overall, these processes made a meaningful contribution to my planning process and final outcome (sprinting (decomposing), prioritising, backlogging and planning).</p>
                 <hr>
                     
 <h1 id="R"> Relevant Implications Summary</h1><br>
