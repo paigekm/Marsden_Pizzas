@@ -49,13 +49,14 @@
 			
                     
 <h1>Brief</h1>
-      <h4>To create a program which allows a user to enter customer details (address, name, pickup/delivery requirements and their pizza order). <br><br>This information, including delivery details, itemised order and total cost, will be stored and displayed to the user in a receipt format.</h4><hr>
+      <h4>To create a program which allows a user to enter customer order (phone, name, pickup/delivery requirements and their pizza order). <br><br>This information, including delivery details, itemised order and total cost, will be stored and displayed to the user in a receipt format.</h4><hr>
                 
                 <div class="blockcolour">
                 <h3>Overall Project Backlog</h3>
                 <p>This is my Project Backlog at the end of the project. <br>The Done column shows all the functions I incorporated, and the To Do column shows potential additions I could develop in the future.</p>
                 <video class="img-responsive" width="600" controls>
                     <source src="assets/videos/overall_project_backlog.mp4" type="video/mp4"></video><br>
+                    <p>I effectively used Github Kanban Boards for project management, to manage the develop of this program. By having a running Project Backlog throughout, I could prioritise different stages of work. The backlog list is infinite, and so even as I complete features in the To-Do column, there will always be potential future ideas. This backlog is ordered in priority so it is easy to know which function/feature to add next.</p><br>
                 </div>
                 <hr>
                     
@@ -65,6 +66,7 @@
                 
         <p>A program which offers a basic main menu, with an option to either View the pizza menu, or Quit the program. <br>If the user chooses the Quit option, they are asked for confirmation to either end the program or return to the main menu.</p>
                 <img class="img-responsive" src="assets/img/plan1.jpg" alt=""><br>
+                <img class="img-responsive" src="assets/img/1plan.jpg" alt=""><br>
                 <img class="img-responsive" src="assets/img/sprint1_prices_function_plan.jpg" alt=""><br>
                 <h4>Sprint board</h4>
                 <img class="img-responsive" src="assets/img/sprint1_board.png" alt=""><br>
@@ -72,7 +74,7 @@
                 <h4>Evidence of Git commit (to update Github remote repository) as it is the end of a Sprint/feature added.</h4>
                 <img class="img-responsive" src="assets/img/making_git_repository.png" alt=""><br>
                 </div><br>
-                <h4>Test to show the basic program I created in Sprint 1</h4>
+                <h4>Test to show the basic program I created in Sprint 1:</h4>
                 <img class="img-responsive" src="assets/img/sprint_1_test.png" alt=""><br>
                 
                 <h4>Reflection</h4>
@@ -84,43 +86,47 @@
                 
                 <br><img class="img-responsive" src="assets/img/sprint2_plan.jpg" alt=""><br>
                 <img class="img-responsive" src="assets/img/sprint2_plan_view.jpg" alt=""><br>
-                <br><p>I also considered and planned a different way for the user to select a pizza, avoiding the use of Index numbers (which may be confusing and new for a user):</p>
+                <br><p>I also considered and planned a different way for the user to select a pizza, avoiding the use of Index numbers (which may be confusing and new for a user):<br>If this was the plan I chose to implement, I would also consider validating the user entry of a country name, for likeness (in case of spelling errors).</p>
                 <img class="img-responsive" src="assets/img/first3letters.jpg" alt="">
                 
                 <br><h4>Sprint board</h4>
                     <img class="img-responsive" src="assets/img/sprint2_sprintboard.png" alt=""><br>
 
-                <h4>Testing</h4><br>
+                <h4>User testing:</h4><br>
 
                     <h5>Frau:</h5><video class="img-responsive" width="600" controls>
                     <source src="assets/videos/frau_testing.mp4" type="video/mp4"></video><br>
-                    <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br> I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give frau an idea of what she needs to enter when asked to choose a pizza.</p>
+                    <p>After Frau tested my programme, in confirming whether they want to quit, instead of having Q and B, I used ‘Y’ and ‘N’ because Frau tried to enter those commands. <br> I also found out I needed to clarify what an index number is, so I added an extra column heading saying “index” to give Frau an idea of what she needs to enter when asked to choose a pizza. This is important to consider, as shown in the plan above, if I could avoid the user having to enter an index number (unfamiliar concept to most people) it would be ideal.</p>
                 <br><br>
-                <h4>Errors</h4>
-                    <p>Below are some Errors I found when testing Sprint Two, and how I addressed/or plan to address them.</p>
+                <h4>Testing:</h4>
+                    <p>Below are some errors I found when testing Sprint Two, and how I addressed/plan to address them.</p>
                     <ol>
                     <li><h5>Index out of range:</h5><br>
                     <video class="img-responsive" width="600"  controls>
                     <source src="assets/videos/index_out_of_range.mp4" type="video/mp4">
                     </video><br>
                     <br><h5>Solution to error:</h5>
-                    <p>I will address this error in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.</p><br></li>
+                    <p>I will address this error in Sprint Three, by creating a validated integer entry function which does not allow the user to enter a pizza index that is out of range, and will give feedback.<br>From this error, I learnt that the current version of my program is pretty inflexible, as I used literal values. In future versions, I will use derived values eg. len(list), to avoid out of range errors as literal values won't work if the order list changes in length. The use of derived values or constants, is also more efficient, as the value can be changed in one place rather than having to make changes throughout the code (for example in future Sprints when I implemented a limit of max 5 pizzas of each type, as when it's not a literal value, this number of 5max can easily be changed if the restaurant wanted).</p><br></li>
                 
-                    <li><h5>Using the pizza's index number (rather than pizza name) when printing the receipt and user messages</h5>
-                        <img class="img-responsive" src="assets/img/number_not_name.png" alt="">  
+                    <li><h5>Using the pizza's index number (rather than pizza name) when printing the receipt and user messages</h5><br>
+                        <img class="img-responsive" src="assets/img/number_not_name.png" alt="">  <br>
                     <h5>Solution to error:</h5>
                     <img class="img-responsive" src="assets/img/working.png" alt=""><br></li>
+                        <p>From this error, I learnt communicating with the user is really important (relevant implication of Usability) and anytime I reference the pizza the user has ordered in the future, I will reference it's actual name.</p><br>
                 
                     
-                    <li><h5>Re-asks to "Start" order midway through</h5>
-                    <img class="img-responsive" src="assets/img/asks_to_start_order_again_halfwaythrough.png" alt="">
+                    <li><h5>Re-asks to "Start" order midway through</h5><br>
+                    <p>I wanted my program to tell the user when a completely new order has started. However when I tried to implement this, it printed a message informing the user their order had begun, everytime they went to the main menu.</p>
                     <h5>Solution to error:</h5>
                     <img class="img-responsive" src="assets/img/onlystartsorder_at_start.png" alt=""><br>
+                        <p>To resolve this problem, I created a loop for 'start', showing when the order had begun and when they were just doing another action from the main menu eg. not restarting a new order. This enabled me to only print a "new order has started" message when this was True. This became especially helpful later in Sprint 8, as I added a feature to Cancel, and this message helped to communicate to the user that their old order had been cancelled and a new one had started. <br> This is important when addressing Usability, as it communicates the current status of the program to the user.</p>
                     <br></li>              
 
                     </ol>
                 
-                <h4>Reflection</h4><hr>
+                <h4>Reflection</h4>
+                <p>At this stage, the program is functional, however through testing I learnt that it crashes very easily. This is because user input is not yet validated, so if the user makes any mistake or misunderstanding when entering, there is an error. <br> My next steps are to validate the user's entries so far, when adding a pizza to their order or entering any other menu option, so that the program doesn't crash but reasks for their entry and continues.</p>
+                <hr>
                 
                 
 <h1 id="3">Sprint Three</h1>
@@ -128,7 +134,7 @@
                 <p>This is my Validations Sprint. Validating my functions enables me to set boundaries for the user's input, and ensures the program doesn't crash when unexpected input is entered.</p>
                 
                 <h4>Plan</h4>
-                    <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> <br><br>
+                    <img class="img-responsive" src="assets/img/plan_sprint3.JPG" alt=""> <br>
                 <h5>Design decision</h5> 
                     <img class="img-responsive" src="assets/img/sprint3_design_decision.JPG" alt=""><br>
                     <img class="img-responsive" src="assets/img/design_decision2.JPG" alt=""><br>
@@ -140,7 +146,7 @@
                 
                 <br><h4>Testing:</h4><br>
                           
-                <h4><b>Validation errors that the validated_integer and validated_string functions in this sprint solved:</b></h4>
+                <p>I used the weaknesses I found through testing Sprint 2, to improve the program's functionality with this Sprint 3. Validating user entries meant there were no opportunities for the program to fail/crash. Below is the improved program - showing the error messages that print before asking for reentry from the user (rather than crashing like it did previously), when different invalid entries are tested. </p>
                 <ol>
                     <li>If the user enters a string when an integer is requested</li><br>
                     <img class="img-responsive" src="assets/img/validation_proofs/enter_string_instead_of_integer.png" alt=""><br>
@@ -152,72 +158,81 @@
                     <img class="img-responsive" src="assets/img/validation_proofs/number_of_pizzas_to_order.png" alt=""><br>
                     <li>More specific feedback explaining index number and ordering limitations</li><br>
                     <img class="img-responsive" src="assets/img/validation_proofs/more_personalised_validated_integer.png" alt=""><br>
-                    <li>Validated totals function - max of 50 pizzas ordered overall</li><br>
                     </ol>
+                
+                <br>
+                <h4>Reflection:</h4>
+                <p>Now that my validations file containing functions - get_validated_integer and get_validated_string - has been incorporated into the program, the length and character type of user input is validated when adding a pizza or selecting a main menu option.<br> Questioning how many pizzas of each type the user can order, (in order to validate user entry for amount of pizzas), led me to consider having a max number of pizzas the user can order in total. In order to set a boundary for the total number of pizzas, I now have to make a function to calculate the total pizzas in the order.</p>
+                
+                
+                
                     <hr>
                     <h2>Sprint 3.5 </h2>
-                    <p>This sub-sprint incorporates a Totals function, which calculates the total number of pizzas in the order so far. Creating this function allows me to validate the user's entry, by ensuring there can be a limit (5 max) of the total number of pizzas in their order.</p>
+                    <p>This sub-sprint incorporates a Totals function, which calculates the total number of pizzas in the order so far. Creating this function allows me to validate the user's entry, by ensuring there can be a limit (50 max) of the total number of pizzas in their order.</p>
                     <br>
                     
                     <img class="img-responsive" src="assets/img/plan_numberofpizzas_validation.jpg" alt=""><br>
-                <p>Iterative decision of how to create a validated totals function: 1st Option and 2nd option</p>
+                <p>Design process of two different ways to potentially create a validated totals function (through a new totals function):</p>
                     <img class="img-responsive" src="assets/img/iterative_decision_for_validated_totalpizzasordered_function.png" alt=""><br>
+                <p>This is the way I decided to actually implement a max of 50 pizzas total in the add_to_order function (with a conditional statement):</p>
+                <img class="img-responsive" src="assets/img/max50total.png" alt=""><br>
                 
-                <h4>Testing:</h4><br>
-
-                    <p>I created a testing, pre-made order in the menu to understand program and quickly show that my_order is being added to, appended</p>
-                    <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br>
-                    <p>Testing finished totals function</p>
+                
+                <br><h4>Testing:</h4>
+<div class="col-container">
+    
+                    <p>When testing, I wanted to quickly understand the program and show that the order is being appended correctly etc. <br>Here are two examples of different temp lists I made for easy testing to speed up my design process, which were called when I selected a 'test' menu option.</p>
+    <div class="col">
+        <img class="img-responsive" src="assets/img/proving_my_order_is_being_updated.png" alt=""><br></div>
+    <div class="col">
+        <img class="img-responsive" src="assets/img/made_a_temp_list_for_easy_testing.png" alt=""> </div>
+                </div>
+                <p>Totals function working:</p>
                     <img class="img-responsive" src="assets/img/total_pizzas_you_have_ordered.png" alt=""><br>
-                    <p>Failed test:</p>
+                    <p>Failed validation:</p>
                     <img class="img-responsive" src="assets/img/if_%3E_50_total_validation_test.png" alt=""><br>
-                    <p>Final validated totals function:</p>
+                    <p>Validated totals function working:</p>
                     <img class="img-responsive" src="assets/img/only_50_in_total.png" alt=""><br>
-                                    
-                                  
+                <p>In this test, I set the max total number of pizzas to 5, to make the testing process faster (as you can only order max 5 pizzas of each type at once so ordering 50+ would be time inefficent). During this test, I created a print statement saying "You currently have _ pizzas in the order." to ensure the totals function was working correctly and to keep track of the order status. I decided to keep this statement beyond just testing, because it is helpful for communication with the user; keeping them up to date with how many pizzas they have ordered.</p><br>
+            
+                                                                    
 
 <div class="blockcolour">
-                <h4>Git commit and git history at the end of Sprint 3</h4><br>
+                <h4>Evidence of a successful git commit and git history at the end of Sprint 3:</h4><br>
 
-                                <video class="img-responsive" width="600"  controls>
+                                <img class="img-responsive" src="assets/img/git_commit_proof_endofsprint3.png" alt=""><br><video class="img-responsive" width="600"  controls>
                                 <source src="assets/videos/git_commit_history_endofsprint3.mp4" type="video/mp4">
                                 </video>
                                <br>
-    <img class="img-responsive" src="assets/img/git_commit_proof_endofsprint3.png" alt=""><br></div><hr>           
+    </div><hr>           
                 
-                <h4>Reflection</h4>
+                <h4>Reflection:</h4>
 	
-                
-                    <h5>Things to address in the next sprint:</h5>
-                    <p>When the list is empty (the user hasn't ordered any food yet), the review option/function should print a customised message to say "You haven't begun your order yet".</p><hr><hr>
+            
+                    <p>Now a maximum of 50 pizzas in the order has successfully been implemented. This means that the user's entry of number of pizzas in the add_to_order function, will be validated so that this new addition doesn't result in more than 50 pizzas in the order. In the next sprint I will address an issue I found during testing. When the list is empty and the user asks to 'Review', the program should print a message to say "You haven't begun your order yet" and return to the main menu.</p><hr>
             
                 
 <h1 id="4">Sprint Four</h1>
-                <p>A program which calculates total cost, and stores this information in a receipt when reviewing the customer order so far.</p>
-                <h4>Plan</h4> <br><img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> <br>
-                <h4>Kanban Board</h4><br><img class="img-responsive" src="assets/img/sprintfour_kanban.png" alt=""><br>
+                <p>A new function which calculates total cost, and prints this information in a receipt when reviewing the customer order so far (and when confirming order at the end).</p>
+                <h4>Plan</h4> <br><img class="img-responsive" src="assets/img/4plan.jpg" alt=""> <br>
+                <img class="img-responsive" src="assets/img/sprint4_plan.jpg" alt=""> <br>
+                <h4>Kanban Board</h4><br><img class="img-responsive" src="assets/img/sprint4_kanbanban.png" alt=""><br>
                 
-                <h4>Testing (for functionality before reciept format):</h4>
+                <h4>Testing (for functionality before printing in a reciept format):</h4><br>
                 
-                    <h5>Calculate the cost of each type of pizza</h5>
-                    <img class="img-responsive" src="assets/img/total_price_of_one_type.png" alt=""> 
-                    <h5>Calculate the total cost of order (price function)</h5>
-                    <img class="img-responsive" src="assets/img/total_price_working.png" alt="">
+                    <p>Calculate the cost of each type of pizza</p>
+                    <img class="img-responsive" src="assets/img/total_price_of_one_type.png" alt=""> <br>
+                    <p>Calculate the total cost of order (total price function)</p>
+                    <img class="img-responsive" src="assets/img/total_price_working.png" alt=""><br>
                 
-<h1>Sprint 4.5</h1>
+<hr><h1>Sprint 4.5</h1>
                 <p>A program which calculates the GST of the order, and shows this below the total cost on the receipt.</p>
-                    <h4>Calculate the GST and include as part of receipt</h4>
+                    <h4>Plan:</h4>
                     <img class="img-responsive" src="assets/img/gst_plan.JPG" alt=""><br><br>
                     
 
-                <h4>Reflection (+ anything about relevant implications)</h4>
-                
-                    <h5>What went right:</h5> 
-
-                            <ul>
-                                <li>Made a temp list for easy testing and included a test menu option to speed up my design process</li><br>
-                                <img class="img-responsive" src="assets/img/made_a_temp_list_for_easy_testing.png" alt=""> 
-                                <li>Imitated the formatting of an actual Countdown reciept</li>
+                <h4>Reflection:</h4>
+                                <p>When printing this order information (including GST) in a receipt format, I imitated the formatting of an actual Countdown reciept.</p>
                             <div class="col-container">
                         <div class="col">
                            <img class="img-responsive" src="assets/img/2@quantity.JPG" alt=""><br>
@@ -226,34 +241,16 @@
                          </div>
                         <div class="col">
                 <img class="img-responsive" src="assets/img/GSTworking.png" alt="">
-                        </div></div><hr>
+                        </div></div>
 
-
-            
-                <h5>What didn't go right:</h5>
-
-                    <hr><ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul><hr>
-
-                <h5>Things to address in the next sprint:</h5>
-
-                    <hr><ul>
-                            <li>Allows the user to enter different currencies (relates to the relevant implications of cultural and accessibility)</li>
-                            <li>In future sprints I am planning to carry out more validations. One example, is disallowing the user from entering one type of pizza twice eg. India - 2, then India - 5. Instead I should decide (iterative decision) as to whether I validate this to print a message saying you can't do this, or create a function to make a sum of all the India pizzas, regardless of what stage of the order they were entered.</li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul><hr>
+                            <p>In future sprints I am planning to carry out more validations. Testing this Sprint with a receipt being printed, made me realise that if a user enters 'Germany' pizzas through the add function, on two different occasions, it prints as two different pizzas in the receipt. A future feature I will add (in Sprint 8) is preventing the reciept from printing a pizza type twice. <br>This process also inspired me to add a future feature to the Project Backlog (although I didn't acheive it this project) - a program which allows the user to enter different currencies (relates to the Relevant Implications of Cultural and Accessibility).
+                            </p><br><br>
+                            
                                 
             <div class="blockcolour">
                 
                 <h4>Overall Project backlog at this point</h4> <br><img class="img-responsive" src="assets/img/project%20backlog_endofs4.png" alt=""> <br>             
-                
+                <br>
                 <h4>Code checker - at the end of Sprint 4</h4>
                                 <div class="col-container">
                                 <div class="col">
@@ -397,6 +394,7 @@
                                 <img class="img-responsive" src="assets/img/sprint8plan.jpg" alt=""><br>
                                 
                                 <h5>Iterative decision:</h5>
+                <p>This decision is whether I validate the add_to_order function's pizza entry to print a message saying "you can't do this" and to "return to the main menu and select Update instead", to redirect them to the Update option, or to create a new function make a sum of all pizzas of one type, regardless of what stage of the order they were added during.</p>
                                 <h6>Plan showing two options for the duplicate function.</h6>
                                 <img class="img-responsive" src="assets/img/iterativedecisionsprint8plan.jpg" alt=""><br>
                                 <img class="img-responsive" src="assets/img/returns_add_to_order.jpg" alt=""><br>
@@ -485,13 +483,13 @@
                                 </div>
                                 
                                 <br><br>
-                                <h1 id="c">Final testing (to ensure no crashes) and user test of my completed program:</h1>
+                                <h1 id="c">Final testing and user test of my completed program:</h1>
                                 <h5>I carried out extensive testing, to ensure there are no crashes and all my validations are working.</h5><br>
                                 <h5>Test the whole program for entry boundaries:</h5>
                                 <video class="img-responsive" width="600" controls>
                                 <source src="assets/videos/test_boundaries.mp4" type="video/mp4">
                                 </video><br>
-                                <p>I tested boundaries for example for the user's entry of their phone number. 1-15 characters are boundary cases for a phone number, so I tested that the program works when values within this range are entered. Along with testing for expected cases (eg. 8 characters), I also tested unexpected cases (in this case 0 or 20). <br>When designing and testing the boundaries for index numbers, I had to be careful because index numbers are assigned to different pizza types when in main menu vs order list, and so my min and max values needed to be flexible.</p>
+                                <p>I tested boundaries for example for the user's entry of their phone number. 1-15 characters are boundary cases for a phone number, so I tested that the program works when values within this range are entered. Along with testing for expected cases (eg. 8 characters), I also tested unexpected cases (in this case 0 or 20). <br>When designing and testing the boundaries for index numbers, I had to be careful because index numbers are assigned to different pizza types when in main menu vs order list, and so my boundaries (min and max values) needed to be flexible.</p>
                                 <br><br>
                                 <h5>Test the whole program for entries of the wrong character type eg. +, o, -, letters when numbers etc.</h5>
                                 <video class="img-responsive" width="600" controls>

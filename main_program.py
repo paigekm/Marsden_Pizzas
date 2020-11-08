@@ -241,8 +241,8 @@ def test_pizza_duplicate(mo, chosen_pizza, quantity):
     :param mo: list (with pizza names
                     which have been selected by the customer and their prices)
     :param chosen_pizza: int
-    :param quantity: int
-    :return: bool, int (the quantity of pizzas the customer wants to add)
+    :param quantity: int (the quantity of pizzas the customer wants to add)
+    :return: bool
     """
     for i in range(0, len(mo)):
         # scans list for that pizza type already
